@@ -14,14 +14,15 @@ cd project-repo
 To work on new features or minigames, always create a new branch from `dev` using the following format:
 
 ```
-minigame/your-minigame-name
+scene/minigame-name
+
 ```
 
 Example:
 
 ```
-minigame/racing-game
-minigame/platformer
+scene/racing-game
+scene/platformer
 ```
 
 Do not work directly in `dev` or `main`. All development must be done in the corresponding minigame branch.
