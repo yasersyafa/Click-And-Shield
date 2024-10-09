@@ -13,6 +13,8 @@ using UnityEngine.SceneManagement;
 - use GetTimer() for get data timer each minigames
 - use SetTimer(int data) if neccessary to modify data timer
 - use GetMinigameScene() to get random minigames
+- use TriggerWin() if win the minigame
+- use TriggerLose() if lose the minigame
 */
 
 public class GameManager : MonoBehaviour
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private int timer;
     private int winstreak;
+    public Animator animator;
 
     void Awake() {
         if(instance == null) {
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         SetTimer(10);
         winstreak = 0;
     }
@@ -75,5 +79,13 @@ public class GameManager : MonoBehaviour
         int randomIndex = Random.Range(1, sceneCount);
 
         return randomIndex;
+    }
+
+    public void TriggerLose(AnimationClip loseClip) {
+        animator.Play(loseClip.name);
+    }
+
+    public void TriggerWin(AnimationClip winClip) {
+        animator.Play(winClip.name); 
     }
 }
