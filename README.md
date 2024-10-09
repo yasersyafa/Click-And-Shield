@@ -41,6 +41,20 @@ git commit -m "Added new folder 'Audio' for sound management scripts"
 git push origin dev
 ```
 
+## 📜 Commit Message Guidelines
+
+To keep commit history clean and understandable, always start your commit messages with either:
+- `create feature:`
+- `update feature:`
+
+Followed by a concise description of the changes.
+
+### Example:
+```
+create feature: added player movement controller
+update feature: fixing enemy bug
+```
+
 ## ⚙️ Programming Principles
 
 When writing code, always remember to:
