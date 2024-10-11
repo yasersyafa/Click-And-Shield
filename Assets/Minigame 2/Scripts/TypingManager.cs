@@ -10,6 +10,7 @@ public class TypingManager : MonoBehaviour
     public TextMeshProUGUI text;
     private WordBank wordBank;
     GameManager manager;
+    private AudioManager audioManager;
 
     void Awake() {
         manager = GameManager.instance;
@@ -46,6 +47,8 @@ public class TypingManager : MonoBehaviour
     }
 
     public void RemoveLetter() {
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.SetSFX(audioManager.sfxClips[0]);
         currentWord = currentWord[1..]; // Remove the first letter
         text.text = currentWord; // Update the word display
 
