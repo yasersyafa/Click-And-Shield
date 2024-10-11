@@ -40,11 +40,6 @@ public class GameManager : MonoBehaviour
         winstreak = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // setter to set the timer
     public void SetTimer(int data) {
@@ -56,7 +51,8 @@ public class GameManager : MonoBehaviour
         return timer;
     }
 
-    public void UpdateTimer() {
+    public void UpdateData() {
+        winstreak++;
         if(winstreak >= 5 && winstreak < 10) {
             SetTimer(8);
         }
@@ -86,6 +82,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void TriggerWin(AnimationClip winClip) {
+        UpdateData();
         animator.Play(winClip.name); 
     }
 }
