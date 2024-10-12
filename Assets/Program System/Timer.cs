@@ -35,8 +35,7 @@ public class Timer : MonoBehaviour
         }
         else if(currentTimer <= 0 && !isFinished) {
             barTimer.fillAmount = 0;
-            //use trigger lose
-            TriggerLose();
+            
         }
     }
 
