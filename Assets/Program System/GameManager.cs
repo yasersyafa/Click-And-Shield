@@ -22,7 +22,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private int timer;
     private int winstreak;
+    private int highScore;
     public Animator animator;
+    public AchievementManager achievementManager;
 
     void Awake() {
         if(instance == null) {
@@ -35,16 +37,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        achievementManager = GetComponent<AchievementManager>();
         animator = GetComponent<Animator>();
         SetTimer(10);
         winstreak = 0;
+
+        LoadData();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // setter to set the timer
     public void SetTimer(int data) {
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateTimer() {
+        
         if(winstreak >= 5 && winstreak < 10) {
             SetTimer(8);
         }
@@ -86,6 +87,33 @@ public class GameManager : MonoBehaviour
     }
 
     public void TriggerWin(AnimationClip winClip) {
+        winstreak++;
+        UpdateTimer();
         animator.Play(winClip.name); 
+
+        achievementManager.CheckForAchievement(winstreak);
+        if(winstreak > highScore) {
+            highScore = winstreak;
+            SaveData();
+        }
+    }
+
+    public void SaveData() {
+        SaveManager.SaveGame(highScore, achievementManager.unlockedAchievements);
+    }
+
+    public void LoadData() {
+        PlayerData data = SaveManager.LoadGame();
+        if(data != null) {
+            highScore = data.highScore;
+
+            achievementManager.unlockedAchievements.Clear();
+            foreach(var title in data.unlockedAchievements) {
+                Achievement achievement = achievementManager.allAchievements.Find(a => a.title == title);
+                if(achievement != null) {
+                    achievementManager.unlockedAchievements.Add(achievement);
+                }
+            }
+        }
     }
 }
