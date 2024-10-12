@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private int timer;
-    private int winstreak;
+    private int currentScore;
     private int highScore;
     public Animator animator;
     public AchievementManager achievementManager;
@@ -40,9 +40,13 @@ public class GameManager : MonoBehaviour
         achievementManager = GetComponent<AchievementManager>();
         animator = GetComponent<Animator>();
         SetTimer(10);
-        winstreak = 0;
+        currentScore = 0;
 
         LoadData();
+    }
+
+    public int GetScore() {
+        return currentScore;
     }
 
 
@@ -58,16 +62,16 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTimer() {
         
-        if(winstreak >= 5 && winstreak < 10) {
+        if(currentScore >= 500 && currentScore < 1000) {
             SetTimer(8);
         }
-        else if(winstreak >= 10 && winstreak < 15) {
+        else if(currentScore >= 1000 && currentScore < 1500) {
             SetTimer(7);
         }
-        else if(winstreak >= 15 && winstreak < 20) {
+        else if(currentScore >= 1500 && currentScore < 2000) {
             SetTimer(6);
         }
-        else if(winstreak >= 20) {
+        else if(currentScore >= 2000) {
             SetTimer(5);
         }
         else {
@@ -87,13 +91,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void TriggerWin(AnimationClip winClip) {
-        winstreak++;
+        currentScore++;
         UpdateTimer();
         animator.Play(winClip.name); 
 
-        achievementManager.CheckForAchievement(winstreak);
-        if(winstreak > highScore) {
-            highScore = winstreak;
+        achievementManager.CheckForAchievement(currentScore);
+        if(currentScore > highScore) {
+            highScore = currentScore;
             SaveData();
         }
     }
