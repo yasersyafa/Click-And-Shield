@@ -1,10 +1,10 @@
 using UnityEngine;
-
+using undanganApk;
 public class LoseState : IMinigameState
 {
-    private Minigame3StateManager minigame3Manager;
+    private MinigameStateManager minigame3Manager;
 
-    public LoseState(Minigame3StateManager manager)
+    public LoseState(MinigameStateManager manager)
     {
         minigame3Manager = manager;
     }

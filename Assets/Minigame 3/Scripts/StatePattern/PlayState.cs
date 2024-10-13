@@ -1,10 +1,11 @@
 using UnityEngine;
+using undanganApk;
 
 public class PlayState : IMinigameState
 {
-    private Minigame3StateManager minigameManager;
+    private MinigameStateManager minigameManager;
 
-    public PlayState(Minigame3StateManager manager)
+    public PlayState(MinigameStateManager manager)
     {
         minigameManager = manager;
         

@@ -1,10 +1,11 @@
 using UnityEngine;
+using undanganApk;
 
 public class WinState : IMinigameState
 {
-    private Minigame3StateManager minigameManager;
+    private MinigameStateManager minigameManager;
 
-    public WinState(Minigame3StateManager manager)
+    public WinState(MinigameStateManager manager)
     {
         minigameManager = manager;
     }
