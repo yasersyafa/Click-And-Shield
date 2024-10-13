@@ -54,6 +54,14 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(minigame);
     }
 
+    public void QuitGame() {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitApplication() {
+        Application.Quit();
+    }
+
     public void WinMinigame() {
         playerScore += 100;
 
