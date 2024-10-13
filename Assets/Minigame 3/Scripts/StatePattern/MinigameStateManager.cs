@@ -10,11 +10,6 @@ namespace undanganApk
         // public AnimationClip loseClip;
 
         //* PlayState variables
-        public GameObject playStatePanel;
-
-        //* PauseState variables
-        public GameObject pauseStatePanel;
-        
 
         void Start()
         {
@@ -44,9 +39,13 @@ namespace undanganApk
             Time.timeScale = 1;
         }
 
+        public void LoseGame()
+        {
+            SetState(new LoseState(this));
+        }
         public void QuitGame()
         {
-            Debug.Log("Kontol game");
+            gameManager.QuitGame();
         }
     }
 

@@ -26,12 +26,6 @@ public class PlayState : IMinigameState
         {
             minigameManager.SetState(new WinState(minigameManager));
         }
-
-        // Check lose condition
-        if (Input.anyKeyDown) // Left mouse button
-        {
-            minigameManager.SetState(new LoseState(minigameManager)); // Transition to lose state
-        }
     }
 
     public void ExitState() { }

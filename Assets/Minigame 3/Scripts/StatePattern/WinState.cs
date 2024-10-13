@@ -16,6 +16,9 @@ public class WinState : IMinigameState
 
         // Call TriggerWin from GameManager and pass the win animation clip
         // minigameManager.gameManager.TriggerWin(minigameManager.winClip);
+        GameManager.instance.WinMinigame();
+        
+
     }
 
     public void UpdateState() { }
