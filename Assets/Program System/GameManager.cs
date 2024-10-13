@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private int timer;
-    private int winstreak;
+    private int currentScore;
+    private int highScore;
     public Animator animator;
+    public AchievementManager achievementManager;
 
     void Awake() {
         if(instance == null) {
@@ -35,9 +37,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        achievementManager = GetComponent<AchievementManager>();
         animator = GetComponent<Animator>();
         SetTimer(10);
-        winstreak = 0;
+        currentScore = 0;
+
+        LoadData();
+    }
+
+    public int GetScore() {
+        return currentScore;
     }
 
 
@@ -51,18 +60,18 @@ public class GameManager : MonoBehaviour
         return timer;
     }
 
-    public void UpdateData() {
-        winstreak++;
-        if(winstreak >= 5 && winstreak < 10) {
+    public void UpdateTimer() {
+        
+        if(currentScore >= 500 && currentScore < 1000) {
             SetTimer(8);
         }
-        else if(winstreak >= 10 && winstreak < 15) {
+        else if(currentScore >= 1000 && currentScore < 1500) {
             SetTimer(7);
         }
-        else if(winstreak >= 15 && winstreak < 20) {
+        else if(currentScore >= 1500 && currentScore < 2000) {
             SetTimer(6);
         }
-        else if(winstreak >= 20) {
+        else if(currentScore >= 2000) {
             SetTimer(5);
         }
         else {
@@ -82,7 +91,33 @@ public class GameManager : MonoBehaviour
     }
 
     public void TriggerWin(AnimationClip winClip) {
-        UpdateData();
+        currentScore++;
+        UpdateTimer();
         animator.Play(winClip.name); 
+
+        achievementManager.CheckForAchievement(currentScore);
+        if(currentScore > highScore) {
+            highScore = currentScore;
+            SaveData();
+        }
+    }
+
+    public void SaveData() {
+        SaveManager.SaveGame(highScore, achievementManager.unlockedAchievements);
+    }
+
+    public void LoadData() {
+        PlayerData data = SaveManager.LoadGame();
+        if(data != null) {
+            highScore = data.highScore;
+
+            achievementManager.unlockedAchievements.Clear();
+            foreach(var title in data.unlockedAchievements) {
+                Achievement achievement = achievementManager.allAchievements.Find(a => a.title == title);
+                if(achievement != null) {
+                    achievementManager.unlockedAchievements.Add(achievement);
+                }
+            }
+        }
     }
 }
