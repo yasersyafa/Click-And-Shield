@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+use this Audio Manager script in every scene if you want play the audio
+this script is reusable
+
+*/
+
+
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource musicSource;
@@ -22,4 +30,6 @@ public class AudioManager : MonoBehaviour
         sfxSource.clip = clip;
         sfxSource.PlayOneShot(clip);
     }
+
+
 }
