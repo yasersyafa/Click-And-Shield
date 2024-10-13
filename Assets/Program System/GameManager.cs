@@ -84,6 +84,10 @@ public class GameManager : MonoBehaviour {
         minigameTimer = 10f;
     }
 
+    public void GoToRewardScene() {
+        SceneManager.LoadScene("Winstreak");
+    }
+
     public void WinAnimation() {
         Debug.Log("Win");
     }
