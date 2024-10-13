@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     public static Timer instance;
     public Image barTimer;
     private float countdown;
-    private float currentTimer;
+    public float currentTimer;
     public bool isFinished;
     GameManager manager;
 
