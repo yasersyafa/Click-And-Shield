@@ -836,8 +836,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Click & Shield
-  metroPackageVersion: 
+  metroPackageName: ClickShield
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -845,7 +845,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Click & Shield
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Click & Shield
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
