@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigame3.unity
     guid: d8369d28a14253a4aa01a10e115a66dd
+  - enabled: 1
+    path: Assets/Scenes/Winstreak.unity
+    guid: a5359b50d789b49f1b020819712bf134
   m_configObjects: {}

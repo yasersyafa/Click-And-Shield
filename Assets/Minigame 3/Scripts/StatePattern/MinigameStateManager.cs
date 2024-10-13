@@ -4,6 +4,7 @@ namespace undanganApk
     public class MinigameStateManager : MonoBehaviour
     {
         private IMinigameState currentState;
+        public bool isGamePaused = false;
 
         private GameManager gameManager;
         // public AnimationClip winClip;
@@ -32,11 +33,13 @@ namespace undanganApk
         public void PauseGame()
         {
             Time.timeScale = 0;
+            isGamePaused = true;
         }
 
         public void ResumeGame()
         {
             Time.timeScale = 1;
+            isGamePaused = false;
         }
 
         public void LoseGame()
@@ -45,7 +48,7 @@ namespace undanganApk
         }
         public void QuitGame()
         {
-            gameManager.QuitGame();
+            GameManager.instance.QuitGame();
         }
     }
 
