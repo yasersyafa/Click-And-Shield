@@ -19,4 +19,8 @@ public class AchievementManager : MonoBehaviour
         unlockedAchievements.Add(achievement);
         // GameManager.instance.SaveData();
     }
+
+    public List<Achievement> GetUnlockedAchievemnts() {
+        return unlockedAchievements;
+    }
 }

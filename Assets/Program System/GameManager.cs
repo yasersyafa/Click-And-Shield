@@ -17,14 +17,14 @@ using UnityEngine.SceneManagement;
 - use TriggerLose() if lose the minigame
 */
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     public static GameManager instance;
-    private int timer;
-    private int winstreak;
-    private int highScore;
-    public Animator animator;
-    public AchievementManager achievementManager;
+    public int playerScore = 0;
+    private int highScore = 0;
+    public bool isGamePaused = false;
+    private float minigameTimer = 10f;
+
+    private string[] minigames = {"Minigame1", "Minigame2"};
 
     void Awake() {
         if(instance == null) {
@@ -34,86 +34,53 @@ public class GameManager : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        achievementManager = GetComponent<AchievementManager>();
-        animator = GetComponent<Animator>();
-        SetTimer(10);
-        winstreak = 0;
 
-        LoadData();
+    void Start() {
+
     }
 
-
-    // setter to set the timer
-    public void SetTimer(int data) {
-        timer = data;
+    public float GetTimer() {
+        return minigameTimer;
     }
 
-    // getter to get timer countdown
-    public int GetTimer() {
-        return timer;
+    public int GetPlayerScore() {
+        return playerScore;
     }
 
-    public void UpdateTimer() {
-        
-        if(winstreak >= 5 && winstreak < 10) {
-            SetTimer(8);
+    public void GetMinigames() {
+        if(isGamePaused) return;
+
+        string minigame = minigames[Random.Range(0, minigames.Length)];
+        SceneManager.LoadScene(minigame);
+    }
+
+    public void WinMinigame() {
+        playerScore += 100;
+
+        if(playerScore >= 500 && playerScore < 1000) {
+            minigameTimer = 8f;
         }
-        else if(winstreak >= 10 && winstreak < 15) {
-            SetTimer(7);
-        }
-        else if(winstreak >= 15 && winstreak < 20) {
-            SetTimer(6);
-        }
-        else if(winstreak >= 20) {
-            SetTimer(5);
+        else if(playerScore >= 1000 && playerScore < 1200) {
+            minigameTimer = 5f;
         }
         else {
-            SetTimer(10);
+            minigameTimer = 10f;
         }
     }
 
-    public int GetMinigameScene() {
-        int sceneCount = SceneManager.sceneCountInBuildSettings;
-        int randomIndex = Random.Range(1, sceneCount);
+    public void LoseMinigame() {
+        highScore = playerScore;
 
-        return randomIndex;
+        // reset all 
+        playerScore = 0;
+        minigameTimer = 10f;
     }
 
-    public void TriggerLose(AnimationClip loseClip) {
-        animator.Play(loseClip.name);
+    public void WinAnimation() {
+        Debug.Log("Win");
     }
 
-    public void TriggerWin(AnimationClip winClip) {
-        winstreak++;
-        UpdateTimer();
-        animator.Play(winClip.name); 
-
-        achievementManager.CheckForAchievement(winstreak);
-        if(winstreak > highScore) {
-            highScore = winstreak;
-            SaveData();
-        }
-    }
-
-    public void SaveData() {
-        SaveManager.SaveGame(highScore, achievementManager.unlockedAchievements);
-    }
-
-    public void LoadData() {
-        PlayerData data = SaveManager.LoadGame();
-        if(data != null) {
-            highScore = data.highScore;
-
-            achievementManager.unlockedAchievements.Clear();
-            foreach(var title in data.unlockedAchievements) {
-                Achievement achievement = achievementManager.allAchievements.Find(a => a.title == title);
-                if(achievement != null) {
-                    achievementManager.unlockedAchievements.Add(achievement);
-                }
-            }
-        }
+    public void LoseAnimation() {
+        Debug.Log("Lose");
     }
 }
