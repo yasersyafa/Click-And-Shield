@@ -31,7 +31,7 @@ public class ScoreCounter : MonoBehaviour
     {
         float elapsedTime = 0f;
         int startScore = currentScore;
-        int targetScore = startScore + 100;
+        int targetScore = GameManager.instance.playerScore;
         
 
         while (elapsedTime < countUpDuration)
@@ -53,5 +53,8 @@ public class ScoreCounter : MonoBehaviour
         // Pastikan score akhir bertambah 1
         
         scoreText.text = targetScore.ToString();
+
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.GetMinigames();
     }
 }
