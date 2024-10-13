@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
     public bool isGamePaused = false;
     private float minigameTimer = 10f;
 
-    private string[] minigames = {"Minigame1", "Minigame2"};
+    private string[] minigames = {"Minigame3"};
 
     void Awake() {
         if(instance == null) {
