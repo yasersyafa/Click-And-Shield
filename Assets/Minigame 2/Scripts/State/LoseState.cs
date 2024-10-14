@@ -12,7 +12,8 @@ namespace typeProtect {
         public void EnterState()
         {
             stateManager.cutscene.SetActive(true);
-            stateManager.animator.SetTrigger("Win");
+            stateManager.animator.SetTrigger("Lose");
+            GameManager.instance.LoseMinigame();
             // if(stateManager.cutscene.activeSelf) {
             //     // play animation
             // }
