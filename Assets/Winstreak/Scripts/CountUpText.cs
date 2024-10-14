@@ -1,8 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Jika menggunakan Text UI biasa
-
-// Jika menggunakan TextMeshPro, uncomment yang di bawah ini
 using TMPro;
 
 public class ScoreCounter : MonoBehaviour
@@ -15,7 +12,7 @@ public class ScoreCounter : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     // Skor awal
-    public int currentScore = 0;
+    public int currentScore;
 
     // Waktu animasi (1.5 detik)
     private readonly float countUpDuration = 1f;
@@ -31,9 +28,10 @@ public class ScoreCounter : MonoBehaviour
     {
         float elapsedTime = 0f;
         int startScore = currentScore;
-        int targetScore = GameManager.instance.playerScore;
+        int targetScore = GameManager.instance != null ? GameManager.instance.playerScore : currentScore + 100;
+        scoreText.text = startScore.ToString();
         
-
+        audioManager.SetSFX(audioManager.sfxClips[0]);
         while (elapsedTime < countUpDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -44,17 +42,22 @@ public class ScoreCounter : MonoBehaviour
 
             // Update teks score
             scoreText.text = newScore.ToString();
-            // audioManager.SetSFX(audioManager.sfxClips[0]);
+            
 
             // Tunggu frame berikutnya
             yield return null;
         }
-
-        // Pastikan score akhir bertambah 1
         
         scoreText.text = targetScore.ToString();
+        currentScore = targetScore;
 
-        yield return new WaitForSeconds(0.5f);
-        GameManager.instance.GetMinigames();
+        yield return new WaitForSeconds(0.3f);
+        if(GameManager.instance.isWin) {
+            GameManager.instance.GetMinigames();
+        }
+        else {
+            GameManager.instance.LoseMinigame();
+            GameManager.instance.QuitGame();
+        }
     }
 }
