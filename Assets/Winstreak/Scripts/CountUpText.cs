@@ -15,7 +15,7 @@ public class ScoreCounter : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     // Skor awal
-    public int currentScore = 0;
+    public int currentScore;
 
     // Waktu animasi (1.5 detik)
     private readonly float countUpDuration = 1f;
