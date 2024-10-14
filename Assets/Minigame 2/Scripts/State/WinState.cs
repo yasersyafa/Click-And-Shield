@@ -11,9 +11,13 @@ namespace typeProtect {
         }
         public void EnterState()
         {
-            Debug.Log("You Win!");
+            stateManager.cutscene.SetActive(true);
+            stateManager.animator.SetTrigger("Win");
+            // if(stateManager.cutscene.activeSelf) {
+            //     // play animation
+            // }
             stateManager.manager.WinMinigame();
-            stateManager.manager.GoToRewardScene();
+            
         }
         public void UpdateState()
         {

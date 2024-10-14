@@ -7,6 +7,8 @@ namespace typeProtect {
     public class MinigameStateManager : MonoBehaviour
     {
         private IMinigameState currentState;
+        public Animator animator;
+        public GameObject cutscene;
         public TextMeshProUGUI currentText;
         public bool isGamePaused = false;
         public GameManager manager;

@@ -11,8 +11,12 @@ namespace typeProtect {
         }
         public void EnterState()
         {
-            Debug.Log("You Lose!");
-            stateManager.manager.GoToRewardScene();
+            stateManager.cutscene.SetActive(true);
+            stateManager.animator.SetTrigger("Win");
+            // if(stateManager.cutscene.activeSelf) {
+            //     // play animation
+            // }
+            // stateManager.manager.GoToRewardScene();
         }
 
         public void ExitState()
