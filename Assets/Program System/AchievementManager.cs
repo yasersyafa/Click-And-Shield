@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
+    public Dictionary<Achievement, bool> achievements = new();
     public List<Achievement> allAchievements;
-    public List<Achievement> unlockedAchievements = new();
+
+    void Start() {
+        foreach(var badge in allAchievements) {
+            achievements[badge] = false;
+        }
+    }
 
     public void CheckForAchievement(int score) {
         foreach(var achievement in allAchievements) {
-            if(!unlockedAchievements.Contains(achievement) && score >= achievement.scoreRequired) {
+            if(GameManager.instance.playerScore >= achievement.scoreRequired && !achievements[achievement]) {
                 UnlockAchievement(achievement);
             }
         }
     }
 
-    private void UnlockAchievement(Achievement achievement) {
-        unlockedAchievements.Add(achievement);
-        // GameManager.instance.SaveData();
+    private void UnlockAchievement(Achievement badge) {
+        achievements[badge] = true;
+        Debug.Log($"You have got the badge: {badge.title}");
     }
 
-    public List<Achievement> GetUnlockedAchievemnts() {
-        return unlockedAchievements ?? allAchievements;
+    public Achievement GetDetailBadge(Achievement badge) {
+        return badge;
     }
 }
