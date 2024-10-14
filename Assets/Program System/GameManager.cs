@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         achievementManager = GetComponentInChildren<AchievementManager>();
-        achievementManager.GetUnlockedAchievemnts();
     }
 
     public float GetTimer() {
