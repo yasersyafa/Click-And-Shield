@@ -49,12 +49,17 @@ public class ScoreCounter : MonoBehaviour
             // Tunggu frame berikutnya
             yield return null;
         }
-
-        // Pastikan score akhir bertambah 1
         
         scoreText.text = targetScore.ToString();
+        currentScore = targetScore;
 
-        yield return new WaitForSeconds(0.5f);
-        GameManager.instance.GetMinigames();
+        yield return new WaitForSeconds(0.3f);
+        if(GameManager.instance.isWin) {
+            GameManager.instance.GetMinigames();
+        }
+        else {
+            GameManager.instance.LoseMinigame();
+            GameManager.instance.QuitGame();
+        }
     }
 }

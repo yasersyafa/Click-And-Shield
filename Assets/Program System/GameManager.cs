@@ -19,6 +19,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
+    public bool isWin;
     public int playerScore = 0;
     private int highScore = 0;
     public bool isGamePaused = false;
@@ -55,6 +56,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void QuitGame() {
+        highScore = playerScore > highScore ? playerScore : highScore;
+
+        // reset all 
+        playerScore = 0;
+        minigameTimer = 10f;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -63,12 +69,13 @@ public class GameManager : MonoBehaviour {
     }
 
     public void WinMinigame() {
+        isWin = true;
         playerScore += 100;
 
         if(playerScore >= 500 && playerScore < 1000) {
             minigameTimer = 8f;
         }
-        else if(playerScore >= 1000 && playerScore < 1200) {
+        else if(playerScore >= 1000) {
             minigameTimer = 5f;
         }
         else {
@@ -77,11 +84,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoseMinigame() {
-        highScore = playerScore;
-
-        // reset all 
-        playerScore = 0;
-        minigameTimer = 10f;
+        isWin = false;
+        
     }
 
     public void GoToRewardScene() {
