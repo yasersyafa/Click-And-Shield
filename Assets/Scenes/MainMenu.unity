@@ -1471,7 +1471,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45378014cc74641ee921cfa4c994ea1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allAchievements: []
+  allAchievements:
+  - {fileID: 11400000, guid: 787bf59f6eb9245c48df35d6ed190437, type: 2}
+  - {fileID: 11400000, guid: b195d446ecac44b1dbcae5cac64ab1ca, type: 2}
+  - {fileID: 11400000, guid: 7c1a00ff02bde4d56af5456bfed66aa9, type: 2}
+  - {fileID: 11400000, guid: fc0e72ceb53814ee5b901fb6b2a21186, type: 2}
+  - {fileID: 11400000, guid: 56a363732da284359bbb58ecece6874c, type: 2}
+  - {fileID: 11400000, guid: d9d94e909cdea485488229d82a246500, type: 2}
+  - {fileID: 11400000, guid: e09620567869e4e8ebc2b98c73ac8bb9, type: 2}
+  - {fileID: 11400000, guid: bae8269f231b942d5bf2225b4c037fc0, type: 2}
   unlockedAchievements: []
 --- !u!4 &692175480
 Transform:

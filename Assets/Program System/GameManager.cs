@@ -19,6 +19,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
+    private AchievementManager achievementManager;
     public bool isWin;
     public int playerScore = 0;
     private int highScore = 0;
@@ -37,7 +38,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
-
+        achievementManager = GetComponentInChildren<AchievementManager>();
+        achievementManager.GetUnlockedAchievemnts();
     }
 
     public float GetTimer() {
@@ -84,8 +86,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoseMinigame() {
-        isWin = false;
-        
+        achievementManager.CheckForAchievement(playerScore);
+        isWin = false;   
     }
 
     public void GoToRewardScene() {

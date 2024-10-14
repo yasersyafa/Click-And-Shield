@@ -1,8 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Jika menggunakan Text UI biasa
-
-// Jika menggunakan TextMeshPro, uncomment yang di bawah ini
 using TMPro;
 
 public class ScoreCounter : MonoBehaviour

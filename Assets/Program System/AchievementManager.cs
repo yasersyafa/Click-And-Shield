@@ -21,6 +21,6 @@ public class AchievementManager : MonoBehaviour
     }
 
     public List<Achievement> GetUnlockedAchievemnts() {
-        return unlockedAchievements;
+        return unlockedAchievements ?? allAchievements;
     }
 }
