@@ -31,9 +31,10 @@ public class ScoreCounter : MonoBehaviour
     {
         float elapsedTime = 0f;
         int startScore = currentScore;
-        int targetScore = GameManager.instance.playerScore;
+        int targetScore = GameManager.instance != null ? GameManager.instance.playerScore : currentScore + 100;
+        scoreText.text = startScore.ToString();
         
-
+        audioManager.SetSFX(audioManager.sfxClips[0]);
         while (elapsedTime < countUpDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -44,7 +45,7 @@ public class ScoreCounter : MonoBehaviour
 
             // Update teks score
             scoreText.text = newScore.ToString();
-            // audioManager.SetSFX(audioManager.sfxClips[0]);
+            
 
             // Tunggu frame berikutnya
             yield return null;

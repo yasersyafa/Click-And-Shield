@@ -1614,7 +1614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1541429702}
   sfxSource: {fileID: 1312761569}
-  musicClips: []
+  musicClips:
+  - {fileID: 8300000, guid: 192b67f7c004641eab74c91a96c34cba, type: 3}
   sfxClips: []
 --- !u!1 &876685649
 GameObject:
@@ -3386,7 +3387,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 192b67f7c004641eab74c91a96c34cba, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4068,6 +4069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b526cebfb74104af0f2ae77389696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWin: 0
   playerScore: 0
   isGamePaused: 0
 --- !u!4 &2075254311
