@@ -9,7 +9,8 @@ namespace backupData
         private IMinigameState currentState;
         public Image loadingBackupBar;
         public bool isGamePaused = false;
-
+        private AudioManager audioManager;
+        [SerializeField] private AudioClip sfx;
         private GameManager gameManager;
         // public AnimationClip winClip;
         // public AnimationClip loseClip;
@@ -19,6 +20,7 @@ namespace backupData
         void Start()
         {
             gameManager = GameManager.instance;
+            audioManager = FindObjectOfType<AudioManager>();
             SetState(new PlayState(this)); // Start with the start animation state
         }
 
@@ -54,7 +56,8 @@ namespace backupData
 
         //* Minigame Functions
         public void PressedLoadingBackup()
-        {
+        { 
+            audioManager.SetSFX(sfx);
             loadingBackupBar.fillAmount += 0.15f;
         }
 

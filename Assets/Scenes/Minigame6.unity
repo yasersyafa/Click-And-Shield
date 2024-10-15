@@ -1606,6 +1606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingBackupBar: {fileID: 1334812821}
   isGamePaused: 0
+  sfx: {fileID: 8300000, guid: 68f2762938b544bc5bf8ac24b758714e, type: 3}
 --- !u!114 &1425665201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,7 +1633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1430689302}
   m_Layer: 0
-  m_Name: Audio Manager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
