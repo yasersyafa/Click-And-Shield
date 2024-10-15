@@ -55,7 +55,7 @@ namespace backupData
         //* Minigame Functions
         public void PressedLoadingBackup()
         {
-            loadingBackupBar.fillAmount += 0.2f;
+            loadingBackupBar.fillAmount += 0.15f;
         }
 
         public void DecreaseLoadingBackup()
