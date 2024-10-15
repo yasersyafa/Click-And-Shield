@@ -34,6 +34,7 @@ public class ScoreCounter : MonoBehaviour
         
         if(!GameManager.instance.isWin) {
             GameManager.instance.LoseMinigame();
+            yield return new WaitForSeconds(0.15f);
             GameManager.instance.QuitGame();
         }else {
             audioManager.SetSFX(audioManager.sfxClips[0]);
