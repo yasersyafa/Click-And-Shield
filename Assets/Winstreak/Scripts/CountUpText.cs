@@ -12,7 +12,7 @@ public class ScoreCounter : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     // Skor awal
-    public int currentScore;
+    private static int currentScore;
 
     // Waktu animasi (1.5 detik)
     private readonly float countUpDuration = 1f;
@@ -21,43 +21,46 @@ public class ScoreCounter : MonoBehaviour
     private void Start()
     {
         // Mulai coroutine untuk menambah 1 skor
+        scoreText.text = currentScore.ToString();
+        Debug.Log($"your score: {currentScore}");
         StartCoroutine(CountUpScore());
     }
 
     IEnumerator CountUpScore()
     {
         float elapsedTime = 0f;
-        int startScore = currentScore;
+        
         int targetScore = GameManager.instance != null ? GameManager.instance.playerScore : currentScore + 100;
-        scoreText.text = startScore.ToString();
         
-        audioManager.SetSFX(audioManager.sfxClips[0]);
-        while (elapsedTime < countUpDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            
-
-            // Interpolasi nilai score dari startScore ke targetScore
-            int newScore = Mathf.FloorToInt(Mathf.Lerp(startScore, targetScore, elapsedTime / countUpDuration));
-
-            // Update teks score
-            scoreText.text = newScore.ToString();
-            
-
-            // Tunggu frame berikutnya
-            yield return null;
-        }
-        
-        scoreText.text = targetScore.ToString();
-        currentScore = targetScore;
-
-        yield return new WaitForSeconds(0.3f);
-        if(GameManager.instance.isWin) {
-            GameManager.instance.GetMinigames();
-        }
-        else {
+        if(!GameManager.instance.isWin) {
             GameManager.instance.LoseMinigame();
+            yield return new WaitForSeconds(0.15f);
+            currentScore = 0;
             GameManager.instance.QuitGame();
+        }else {
+            audioManager.SetSFX(audioManager.sfxClips[0]);
+            while (elapsedTime < countUpDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                
+
+                // Interpolasi nilai score dari startScore ke targetScore
+                int newScore = Mathf.FloorToInt(Mathf.Lerp(currentScore, targetScore, elapsedTime / countUpDuration));
+
+                // Update teks score
+                scoreText.text = newScore.ToString();
+                
+
+                // Tunggu frame berikutnya
+                yield return null;
+            }
+            
+            scoreText.text = targetScore.ToString();
+            currentScore = targetScore;
+            Debug.Log($"[CountUpScore] Updated currentScore: {currentScore}");
+
+            yield return new WaitForSeconds(0.25f);
+            GameManager.instance.GetMinigames();
         }
     }
 }
