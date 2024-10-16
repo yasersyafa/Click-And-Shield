@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954a81cb1c6794086832ebca11b53915, type: 3}
   m_Name: Spoof
   m_EditorClassIdentifier: 
-  card: {fileID: 21300000, guid: bb72ef298adbb4e799a86ee2d10a8e69, type: 3}
+  card: {fileID: 21300000, guid: deee891c70e0d4eb3978fc2f2c217057, type: 3}
   title: Spoof Slayer
   description: Serangan spoofing sering terjadi dalam bentuk email atau situs web
     palsu.

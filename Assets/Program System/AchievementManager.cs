@@ -8,25 +8,35 @@ public class AchievementManager : MonoBehaviour
     public List<Achievement> allAchievements;
 
     void Start() {
-        foreach(var badge in allAchievements) {
-            achievements[badge] = false;
-        }
+        // foreach(var badge in allAchievements) {
+        //     achievements[badge] = false;
+        // }
     }
 
     public void CheckForAchievement(int score) {
         foreach(var achievement in allAchievements) {
-            if(GameManager.instance.playerScore >= achievement.scoreRequired && !achievements[achievement]) {
+            if(score >= achievement.scoreRequired) {
                 UnlockAchievement(achievement);
             }
         }
     }
 
     private void UnlockAchievement(Achievement badge) {
-        achievements[badge] = true;
+        if(!achievements.ContainsKey(badge)) {
+            achievements.Add(badge, true);
+        }
+        else {
+            achievements[badge] = true;
+        }
+        
         Debug.Log($"You have got the badge: {badge.title}");
     }
 
     public Achievement GetDetailBadge(Achievement badge) {
         return badge;
+    }
+
+    public bool GetBadge(Achievement badge) {
+        return achievements.ContainsKey(badge) ? true : false;
     }
 }

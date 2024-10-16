@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954a81cb1c6794086832ebca11b53915, type: 3}
   m_Name: Smishing
   m_EditorClassIdentifier: 
-  card: {fileID: 21300000, guid: f8b03385293064bda872469aaf1973c7, type: 3}
+  card: {fileID: 21300000, guid: ee43cc75f7dcf4bb38d2c9c97592f7f8, type: 3}
   title: Smishing Savior
   description: Smishing menjadi semakin umum dengan pesan teks yang menipu, namun
     mudah diatasi dengan kesadaran dasar tentang penipuan.
