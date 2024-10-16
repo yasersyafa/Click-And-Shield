@@ -7,6 +7,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject typeAPrefab;
     public GameObject typeBPrefab;
     public Transform spawnPoint;
+    public Transform parentPanel;
 
     private void Start()
     {
@@ -15,7 +16,8 @@ public class ObjectSpawner : MonoBehaviour
 
     public void SpawnRandomObject()
     {
-        int randomChoice = Random.Range(0, 1);
+        int randomChoice = Random.Range(0, 2);
+        Debug.Log("Random Choice :" + randomChoice);
 
         GameObject objectToSpawn = null;
 
@@ -28,8 +30,8 @@ public class ObjectSpawner : MonoBehaviour
             objectToSpawn = typeBPrefab;
         }
 
-        Instantiate(objectToSpawn, spawnPoint.position, Quaternion.identity);
+        GameObject spawnedObject = Instantiate(objectToSpawn, spawnPoint.position, Quaternion.identity, parentPanel);
+
+        spawnedObject.GetComponent<RectTransform>().anchoredPosition = spawnPoint.GetComponent<RectTransform>().anchoredPosition;
     }
-
-
 }

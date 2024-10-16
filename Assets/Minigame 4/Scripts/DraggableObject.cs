@@ -33,9 +33,9 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-        if (true)
+        if (!eventData.pointerCurrentRaycast.isValid)
         {
-            
+            rectTransform.position = startPosition;
         }
     }
 }

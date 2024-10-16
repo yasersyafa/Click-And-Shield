@@ -7,8 +7,7 @@ using UnityEngine.EventSystems;
 public class DropZone : MonoBehaviour, IDropHandler
 {
     public DraggableObject.ObjectType acceptedType;
-    public GameManager gameManager;
-
+    public MiniGameManager miniGameManager;
     
     public void OnDrop(PointerEventData eventData)
     {
@@ -16,17 +15,17 @@ public class DropZone : MonoBehaviour, IDropHandler
 
         if (draggableObject !=null)
         {
-/*            if (draggableObject == acceptedType)
+            if (draggableObject.objectType == acceptedType)
             {
                 Destroy(draggableObject.gameObject);
-                gameManager
-            }*/
+/*                miniGameManager.AddPoint();*/
+            }
+            else
+            {
+                //For incorect object
+                Destroy(draggableObject.gameObject);
+                miniGameManager.GameOver();
+            }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
