@@ -17,7 +17,15 @@ public class MiniGameManager : MonoBehaviour
         gameoverPanel.SetActive(false);
         pausePanel.SetActive(false);
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
+    }
+
     public void GameOver()
     {
         gameoverPanel.SetActive(true);
@@ -28,7 +36,6 @@ public class MiniGameManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
