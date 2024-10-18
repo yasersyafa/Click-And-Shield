@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MiniGameManager : MonoBehaviour
 {
-    public GameObject gameoverPanel;
     public GameObject pausePanel;
 
     private bool isPaused = false;
 
     void Start()
     {
-        gameoverPanel.SetActive(false);
         pausePanel.SetActive(false);
     }
 
