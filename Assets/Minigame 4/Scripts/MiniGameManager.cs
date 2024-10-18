@@ -10,8 +10,6 @@ public class MiniGameManager : MonoBehaviour
 
     private bool isPaused = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         gameoverPanel.SetActive(false);
@@ -26,11 +24,16 @@ public class MiniGameManager : MonoBehaviour
         }
     }
 
+    public void WinGame()
+    {
+        GameManager.instance.WinMinigame();
+        GameManager.instance.GoToRewardScene();
+    }
+
     public void GameOver()
     {
-        gameoverPanel.SetActive(true);
-
-        Time.timeScale = 0f;
+        GameManager.instance.LoseMinigame();
+        GameManager.instance.GoToRewardScene();
     }
 
     public void RestartGame()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class DropZone : MonoBehaviour, IDropHandler
 {
@@ -17,14 +18,25 @@ public class DropZone : MonoBehaviour, IDropHandler
         {
             if (draggableObject.objectType == acceptedType)
             {
-                Destroy(draggableObject.gameObject);
-/*                miniGameManager.AddPoint();*/
+                draggableObject.transform.DOScale(draggableObject.transform.localScale, 0.2f)
+                    .SetEase(Ease.InBack)
+                    .OnComplete(() =>
+                    {
+                        miniGameManager.WinGame();
+                        Destroy(draggableObject.gameObject);
+                        /*                miniGameManager.AddPoint();*/
+                    });
             }
             else
             {
-                //For incorect object
-                Destroy(draggableObject.gameObject);
-                miniGameManager.GameOver();
+                draggableObject.transform.DOScale(draggableObject.transform.localScale, 0.2f)
+                    .SetEase(Ease.InBack)
+                    .OnComplete(() =>
+                    {
+                      //For incorect object
+                      Destroy(draggableObject.gameObject);
+                      miniGameManager.GameOver();
+                  });
             }
         }
     }
