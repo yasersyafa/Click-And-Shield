@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1edb198768815544a73448f6996eae6, type: 3}
+  m_Name: TextData
+  m_EditorClassIdentifier: 
+  TextDataList:
+  - text: Full Name
+    objectType: 0
+  - text: Home Addres
+    objectType: 0
+  - text: Personal Phone Number
+    objectType: 0
+  - text: ID/Passport Number
+    objectType: 0
+  - text: "Personal\_Email\_Address"
+    objectType: 0
+  - text: Nickname
+    objectType: 1
+  - text: 'Social Media '
+    objectType: 1
+  - text: Hobbies
+    objectType: 1
+  - text: Gender
+    objectType: 1
+  - text: School
+    objectType: 1

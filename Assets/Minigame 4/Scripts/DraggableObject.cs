@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public enum ObjectType {TypeA, TypeB}
+    public enum ObjectType {Privasi, Public}
     public ObjectType objectType;
 
 

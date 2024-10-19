@@ -24,18 +24,16 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
         {
             if (draggableObject.objectType == acceptedType)
             {
-                    {
-                        miniGameManager.WinGame();
-                        Destroy(draggableObject.gameObject);
-                    }
+                Debug.Log("Benar");
+                Destroy(draggableObject.gameObject);
+                miniGameManager.WinGame();
             }
             else
             {
-                    {
-                        // Untuk objek yang salah
-                        Destroy(draggableObject.gameObject);
-                        miniGameManager.GameOver();
-                    }
+                // Untuk objek yang salah
+                Debug.Log("Salah");
+                Destroy(draggableObject.gameObject);
+                miniGameManager.GameOver();
             }
         }
 
