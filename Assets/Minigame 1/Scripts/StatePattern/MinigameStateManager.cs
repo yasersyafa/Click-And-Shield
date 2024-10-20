@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace tangkapPhiser
 {
     public class MinigameStateManager : MonoBehaviour
     {
         private IMinigameState currentState;
+        public GameObject ParentEmail, cutsceneCanvas;
+        public VideoPlayer cutscenePlayer;
+        public VideoClip winClip, loseClip;
+        
         public bool isGamePaused = false;
 
         private GameManager gameManager;
