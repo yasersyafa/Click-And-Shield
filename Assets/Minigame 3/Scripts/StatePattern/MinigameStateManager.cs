@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.Video;
 namespace undanganApk
 {
     public class MinigameStateManager : MonoBehaviour
     {
         private IMinigameState currentState;
+        public GameObject cutsceneCanvas;
+        public VideoPlayer cutscenePlayer;
+        public VideoClip winClip, loseClip;
         public bool isGamePaused = false;
 
         private GameManager gameManager;
