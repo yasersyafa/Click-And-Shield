@@ -16,9 +16,11 @@ public class MiniGameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartGame();
+        if(!isPaused) {
+            Timer.instance.currentTimer -= Time.deltaTime;
+            if(Timer.instance.currentTimer <= 0) {
+                GameOver();
+            }
         }
     }
 
@@ -62,7 +64,6 @@ public class MiniGameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
-        Debug.Log("Aplikasi keluar");
+        GameManager.instance.QuitGame();
     }
 }

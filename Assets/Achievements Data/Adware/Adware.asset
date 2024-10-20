@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954a81cb1c6794086832ebca11b53915, type: 3}
   m_Name: Adware
   m_EditorClassIdentifier: 
-  card: {fileID: 21300000, guid: 3330e72f8e3b7483896d561a5fb33671, type: 3}
+  card: {fileID: 21300000, guid: 3bf9db1f35daa4526a9afb2d22a90fd5, type: 3}
   title: Adware Annihilator
   description: sering muncul dalam berbagai bentuk, sehingga cukup mudah ditemukan
     dan diatasi oleh pemain.

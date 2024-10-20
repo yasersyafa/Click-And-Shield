@@ -2,11 +2,11 @@ using UnityEngine;
 using undanganApk;
 public class LoseState : IMinigameState
 {
-    private MinigameStateManager minigame3Manager;
+    private MinigameStateManager minigameManager;
 
     public LoseState(MinigameStateManager manager)
     {
-        minigame3Manager = manager;
+        minigameManager = manager;
     }
 
     public void EnterState()

@@ -2303,6 +2303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Public_Drop
       objectReference: {fileID: 0}
+    - target: {fileID: 5999633678597688320, guid: ceefa4c02716b164e8177f9b680dc803, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 934972306}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2400,6 +2404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Private_Drop
       objectReference: {fileID: 0}
+    - target: {fileID: 5475582465706065457, guid: 0e8b8ad9cffffc44a886be80d736fd60, type: 3}
+      propertyPath: miniGameManager
+      value: 
+      objectReference: {fileID: 934972306}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
