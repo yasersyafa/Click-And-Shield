@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     [Space]
     [Header("sfx")]
     public List<AudioClip> sfxClips = new();
+
+    public static AudioManager instance; //* UPDATE !!! - static instance
     
 
     public void SetMusic(AudioClip clip) {
@@ -43,6 +45,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Awake() {
+        if(instance == null) {
+            instance = this;
+        }
+        else {
+            Destroy(gameObject);
+        }
+    }
+
     void Start() {
         SetMusic(musicSource.clip);
     }
@@ -50,6 +61,10 @@ public class AudioManager : MonoBehaviour
     public void SetSFX(AudioClip clip) {
         sfxSource.clip = clip;
         sfxSource.PlayOneShot(clip);
+    }
+
+    public static void StopMusic() {
+        instance.musicSource.Stop();
     }
 
 
