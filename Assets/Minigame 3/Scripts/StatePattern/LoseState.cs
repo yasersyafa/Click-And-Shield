@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 using undanganApk;
 public class LoseState : IMinigameState
 {
@@ -11,15 +12,24 @@ public class LoseState : IMinigameState
 
     public void EnterState()
     {
-        Debug.Log("You lose!");
+        minigameManager.cutsceneCanvas.SetActive(true);
+        minigameManager.cutscenePlayer.clip = minigameManager.loseClip;
+        minigameManager.cutscenePlayer.Play();
+        minigameManager.cutscenePlayer.loopPointReached += EndLoseCutscene;
 
         // Call TriggerLose from GameManager and pass the lose animation clip
         // minigame3Manager.gameManager.TriggerLose(minigame3Manager.loseClip);
         GameManager.instance.LoseMinigame();
-        GameManager.instance.GoToRewardScene();
     }
 
     public void UpdateState() { }
 
     public void ExitState() { }
+
+    private void EndLoseCutscene(VideoPlayer vp)
+    {
+        minigameManager.cutscenePlayer.loopPointReached -= EndLoseCutscene;
+        Debug.Log("You lose!");
+        GameManager.instance.GoToRewardScene();
+    }
 }
