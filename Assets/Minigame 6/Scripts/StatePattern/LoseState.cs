@@ -18,7 +18,7 @@ namespace backupData
             // Call TriggerLose from GameManager and pass the lose animation clip
             // minigame3Manager.gameManager.TriggerLose(minigame3Manager.loseClip);
             // GameManager.instance.LoseMinigame();
-            GameManager.instance.GoToRewardScene();
+            // GameManager.instance.GoToRewardScene();
         }
 
         public void UpdateState() { }
