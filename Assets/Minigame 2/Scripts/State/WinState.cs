@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace typeProtect {
     public class WinState : IMinigameState
@@ -11,13 +12,15 @@ namespace typeProtect {
         }
         public void EnterState()
         {
-            stateManager.cutscene.SetActive(true);
-            stateManager.animator.SetTrigger("Win");
-            // if(stateManager.cutscene.activeSelf) {
-            //     // play animation
-            // }
-            stateManager.manager.WinMinigame();
-            
+            AudioManager.StopMusic();
+            stateManager.cutsceneCanvas.SetActive(true);
+            stateManager.cutscenePlayer.clip = stateManager.winClip;
+            stateManager.cutscenePlayer.Play();
+            stateManager.cutscenePlayer.loopPointReached += EndWinCutscene;
+
+            // Call TriggerWin from GameManager and pass the win animation clip
+            // minigame3Manager.gameManager.TriggerWin(minigame3Manager.winClip);
+            GameManager.instance.WinMinigame();
         }
         public void UpdateState()
         {
@@ -27,6 +30,13 @@ namespace typeProtect {
         public void ExitState()
         {
             
+        }
+
+        private void EndWinCutscene(VideoPlayer vp)
+        {
+            stateManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
+            Debug.Log("Win cutscene ended.");
+            GameManager.instance.GoToRewardScene();
         }
 
     }
