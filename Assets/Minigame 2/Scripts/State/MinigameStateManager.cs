@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace typeProtect {
     public class MinigameStateManager : MonoBehaviour
     {
         private IMinigameState currentState;
-        public Animator animator;
         public GameObject cutscene;
         public TextMeshProUGUI currentText;
         public bool isGamePaused = false;
+
+        public GameObject cutsceneCanvas;
+        public VideoPlayer cutscenePlayer;
+        public VideoClip winClip, loseClip;
+
         public GameManager manager;
         
         // Start is called before the first frame update
