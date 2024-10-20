@@ -13,8 +13,6 @@ namespace tangkapPhiser
         public bool isGamePaused = false;
 
         private GameManager gameManager;
-        // public AnimationClip winClip;
-        // public AnimationClip loseClip;
 
         //* PlayState variables
 
