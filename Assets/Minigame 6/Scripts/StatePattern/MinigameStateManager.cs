@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using backupData;
 
 namespace backupData
@@ -9,11 +10,14 @@ namespace backupData
         private IMinigameState currentState;
         public Image loadingBackupBar;
         public bool isGamePaused = false;
+        
+        public GameObject cutsceneCanvas;
+        public VideoPlayer cutscenePlayer;
+        public VideoClip winClip, loseClip;
+
         private AudioManager audioManager;
         [SerializeField] private AudioClip sfx;
         private GameManager gameManager;
-        // public AnimationClip winClip;
-        // public AnimationClip loseClip;
 
         //* PlayState variables
 
