@@ -29,16 +29,16 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
 
         if(GameManager.instance != null) {
-            if(GameManager.instance.playerScore >= 500 && GameManager.instance.playerScore < 1000) {
+            if(GameManager.instance.playerScore >= 300 && GameManager.instance.playerScore < 700) {
                 musicSource.pitch = 1.2f;
             }
-            else if(GameManager.instance.playerScore >= 1000 && GameManager.instance.playerScore < 1500) {
+            else if(GameManager.instance.playerScore >= 700 && GameManager.instance.playerScore < 1000) {
                 musicSource.pitch = 1.3f;
             }
-            else if(GameManager.instance.playerScore >= 1500 && GameManager.instance.playerScore < 1600) {
+            else if(GameManager.instance.playerScore >= 1000 && GameManager.instance.playerScore < 1200) {
                 musicSource.pitch = 1.4f;
             }
-            else if(GameManager.instance.playerScore >= 1600) {
+            else if(GameManager.instance.playerScore >= 1200) {
                 musicSource.pitch = 1.5f;
             }
             

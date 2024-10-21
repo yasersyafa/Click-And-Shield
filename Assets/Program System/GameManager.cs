@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,13 +22,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     private AchievementManager achievementManager;
+    private Queue<string> scenes = new();
     public bool isWin;
     public int playerScore = 0;
     private int highScore = 0;
     public bool isGamePaused = false;
     private float minigameTimer = 10f;
 
-    private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame4"};
+    private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame4", "Minigame5"};
 
     void Awake() {
         if(instance == null) {
@@ -52,8 +55,10 @@ public class GameManager : MonoBehaviour {
 
     public void GetMinigames() {
         if(isGamePaused) return;
-
-        string minigame = minigames[Random.Range(0, minigames.Length)];
+        if(scenes.Count == 0) {
+            AddQueue();
+        }
+        string minigame = scenes.Dequeue();
         SceneManager.LoadScene(minigame);
     }
 
@@ -74,11 +79,14 @@ public class GameManager : MonoBehaviour {
         isWin = true;
         playerScore += 100;
 
-        if(playerScore >= 500 && playerScore < 1000) {
-            minigameTimer = 8f;
+        if(playerScore >= 300 && playerScore < 700) {
+            minigameTimer = 7f;
+        }
+        else if(playerScore >= 700) {
+            minigameTimer = 5f;
         }
         else if(playerScore >= 1000) {
-            minigameTimer = 5f;
+            minigameTimer = 3f;
         }
         else {
             minigameTimer = 10f;
@@ -105,11 +113,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void WinAnimation() {
-        Debug.Log("Win");
-    }
-
-    public void LoseAnimation() {
-        Debug.Log("Lose");
+    private void AddQueue() {
+        System.Random randomizeScene = new();
+        minigames = minigames.OrderBy(x => randomizeScene.Next()).ToArray();
+        foreach(string nameScene in minigames) {
+            scenes.Enqueue(nameScene);
+        }
     }
 }

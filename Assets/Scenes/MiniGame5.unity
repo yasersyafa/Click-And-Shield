@@ -478,7 +478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499037406022728856, guid: 313d6bbe1c5f5a54eabedcf51a07c03d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 19.1979
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5499037406022728856, guid: 313d6bbe1c5f5a54eabedcf51a07c03d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 416}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

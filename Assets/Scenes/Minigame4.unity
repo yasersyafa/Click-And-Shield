@@ -375,11 +375,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 211192402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 366}
-  m_SizeDelta: {x: 612.8045, y: 163.4145}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 240, y: 64}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &341555035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 416}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -793,7 +793,7 @@ PrefabInstance:
     - target: {fileID: 4186900879763545434, guid: 5fc7e33a9504f4d408b182cf94783ba1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 934972308}
+      objectReference: {fileID: 1291034124}
     - target: {fileID: 4186900879763545434, guid: 5fc7e33a9504f4d408b182cf94783ba1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame
@@ -825,7 +825,7 @@ PrefabInstance:
     - target: {fileID: 8553781381368158492, guid: 5fc7e33a9504f4d408b182cf94783ba1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 934972308}
+      objectReference: {fileID: 1291034124}
     - target: {fileID: 8553781381368158492, guid: 5fc7e33a9504f4d408b182cf94783ba1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -919,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499037406022728856, guid: 313d6bbe1c5f5a54eabedcf51a07c03d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 18.0866
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5499037406022728856, guid: 313d6bbe1c5f5a54eabedcf51a07c03d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1005,7 +1005,6 @@ GameObject:
   - component: {fileID: 934972305}
   - component: {fileID: 934972306}
   - component: {fileID: 934972307}
-  - component: {fileID: 934972308}
   m_Layer: 0
   m_Name: MiniGameManager
   m_TagString: Untagged
@@ -1059,22 +1058,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barTimer: {fileID: 907125131}
   currentTimer: 0
---- !u!114 &934972308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934972304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f937b54258e40e1a519da480b10753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 1169347758}
-  sfxSource: {fileID: 227113156}
-  musicClips: []
-  sfxClips: []
 --- !u!1 &1169347757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1291034123}
+  - component: {fileID: 1291034124}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -1236,6 +1220,23 @@ Transform:
   - {fileID: 227113157}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291034124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291034121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f937b54258e40e1a519da480b10753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 1169347758}
+  sfxSource: {fileID: 227113156}
+  musicClips: []
+  sfxClips:
+  - {fileID: 8300000, guid: b73d0d7a04dee41e69234cc2b5347a15, type: 3}
 --- !u!1 &1337585322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,7 +1333,7 @@ PrefabInstance:
     - target: {fileID: 75051061850132312, guid: dceb4a0ca09caba41b1e7c5230327a28, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 934972308}
+      objectReference: {fileID: 1291034124}
     - target: {fileID: 75051061850132312, guid: dceb4a0ca09caba41b1e7c5230327a28, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
