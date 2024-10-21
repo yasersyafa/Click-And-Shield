@@ -15,6 +15,7 @@ public class LoseState : IMinigameState
 
     public void EnterState()
     {
+        AudioManager.StopMusic();
         minigameManager.cutsceneCanvas.SetActive(true);
         minigameManager.cutscenePlayer.clip = minigameManager.loseClip;
         minigameManager.cutscenePlayer.Play();
