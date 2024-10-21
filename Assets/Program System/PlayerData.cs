@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerData
 {
     public int highScore;
-    public List<string> unlockedAchievements = new();
+    public List<string> achievements = new();
 
     // constructor
-    public PlayerData(int score, List<string> achievements) {
+    public PlayerData(int score, List<string> badge) {
         highScore = score;
-        unlockedAchievements = achievements;
+        achievements = badge;
     }
 }

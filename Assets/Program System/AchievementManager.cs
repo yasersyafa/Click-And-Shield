@@ -4,39 +4,39 @@ using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
-    public Dictionary<Achievement, bool> achievements = new();
-    public List<Achievement> allAchievements;
-
-    void Start() {
-        // foreach(var badge in allAchievements) {
-        //     achievements[badge] = false;
-        // }
-    }
+    // public Dictionary<Achievement, bool> achievements = new();
+    public List<Achievement> allAchievements = new();
+    private List<string> unlockedAchievements = new();
 
     public void CheckForAchievement(int score) {
         foreach(var achievement in allAchievements) {
-            if(score >= achievement.scoreRequired) {
+            if(score >= achievement.scoreRequired && !IsAchievementUnlocked(achievement.title)) {
                 UnlockAchievement(achievement);
             }
         }
     }
 
     private void UnlockAchievement(Achievement badge) {
-        if(!achievements.ContainsKey(badge)) {
-            achievements.Add(badge, true);
-        }
-        else {
-            achievements[badge] = true;
-        }
-        
-        Debug.Log($"You have got the badge: {badge.title}");
+        unlockedAchievements.Add(badge.title);
+    }
+
+    public bool IsAchievementUnlocked(string title) {
+        return unlockedAchievements.Contains(title);
+    }
+
+    public List<string> GetUnlockedAchievements() {
+        return new List<string>(unlockedAchievements);
     }
 
     public Achievement GetDetailBadge(Achievement badge) {
         return badge;
     }
 
-    public bool GetBadge(Achievement badge) {
-        return achievements.ContainsKey(badge) ? true : false;
+    public void LoadAchievements(List<string> savedAchievements) {
+        unlockedAchievements = new List<string>(savedAchievements);
     }
+
+    // public bool GetBadge(Achievement badge) {
+    //     return achievements.ContainsKey(badge) ? true : false;
+    // }
 }

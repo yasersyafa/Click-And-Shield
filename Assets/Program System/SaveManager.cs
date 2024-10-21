@@ -8,16 +8,16 @@ public static class SaveManager
     private static string savePath =  Application.persistentDataPath + "/playerdata.save";
 
     // save data
-    public static void SaveGame(int highScore, List<Achievement> unlockedAchievements) {
+    public static void SaveGame(int highScore, List<string> unlockedAchievements) {
         BinaryFormatter formatter = new();
         FileStream stream = new(savePath, FileMode.Create);
-        List<string> achievementsTitle = new();
+        List<string> achievements = new();
 
         foreach(var achievement in unlockedAchievements) {
-            achievementsTitle.Add(achievement.title);
+            achievements.Add(achievement);
         }
 
-        PlayerData data = new(highScore, achievementsTitle);
+        PlayerData data = new(highScore, achievements);
         formatter.Serialize(stream, data);
         stream.Close();
     }

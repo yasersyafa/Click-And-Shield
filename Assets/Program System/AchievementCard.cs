@@ -10,27 +10,22 @@ public class AchievementCard : MonoBehaviour
     private Image card;
     AchievementManager achievementManager; 
 
-    // public AchievementCard() {
-    //     card.sprite = UpdateCard();
-    // }
-
     // Start is called before the first frame update
     void Start()
     {
         achievementManager = GameObject.Find("Achievement Manager").GetComponent<AchievementManager>();
         card = GetComponent<Image>();
-        card.sprite = UpdateCard();
-        
+        UpdateCard();
         
     }
 
-    private Sprite UpdateCard()
-    {
-        Debug.Log($"sprite: {card.sprite.name}");
-        if(achievementManager.GetBadge(badge)) {
-            return badge.card;
+    private void UpdateCard() {
+        if (achievementManager.IsAchievementUnlocked(badge.title)) {
+            // Jika achievement sudah terbuka, tampilkan sprite achievement
+            card.sprite = badge.card;
+        } else {
+            // Jika achievement belum terbuka, tampilkan sprite locked
+            card.sprite = lockedSprite;
         }
-        else return lockedSprite;
-        // return achievementManager.GetBadge(badge) ? badge.card : lockedSprite; 
     }
 }

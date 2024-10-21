@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         achievementManager = GetComponentInChildren<AchievementManager>();
+        LoadGame();
     }
 
     public float GetTimer() {
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void QuitGame() {
-        highScore = playerScore > highScore ? playerScore : highScore;
+        
 
         // reset all 
         playerScore = 0;
@@ -85,12 +86,23 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoseMinigame() {
+        highScore = playerScore > highScore ? playerScore : highScore;
         achievementManager.CheckForAchievement(playerScore);
+        SaveManager.SaveGame(highScore, achievementManager.GetUnlockedAchievements());
         isWin = false;   
     }
 
     public void GoToRewardScene() {
         SceneManager.LoadScene("Winstreak");
+    }
+
+    public void LoadGame() {
+        // Memuat data game dan pencapaian dari SaveManager
+        PlayerData data = SaveManager.LoadGame();
+        if (data != null) {
+            highScore = data.highScore;
+            achievementManager.LoadAchievements(data.achievements);  // Memuat pencapaian yang tersimpan
+        }
     }
 
     public void WinAnimation() {

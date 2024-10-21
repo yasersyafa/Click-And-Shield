@@ -17,7 +17,12 @@ public class PopupAchievement : MonoBehaviour
     public void ShowAchievement() {
         for(int i = 0; i < badges.Length; i++) {
             Achievement achievement = achievementManager.allAchievements[i];
-            badges[i].sprite = achievementManager.achievements[achievement] ? achievement.card : lockedSprite;
+        if(achievementManager.IsAchievementUnlocked(achievement.title)) {
+                badges[i].sprite = achievementManager.allAchievements[i].card;
+            }
+            else {
+                badges[i].sprite = lockedSprite;
+            }
         }
     }
 }

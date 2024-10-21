@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 954a81cb1c6794086832ebca11b53915, type: 3}
-  m_Name: DDoS
+  m_Name: Keylogger Killer
   m_EditorClassIdentifier: 
-  card: {fileID: 21300000, guid: e97a92f3ee5c74bf1a78a882b11b8b02, type: 3}
-  title: DDoS Defender
-  description: DDoS sering terjadi pada skala besar dan menjadi lebih umum.
-  scoreRequired: 1100
+  card: {fileID: 21300000, guid: f0a6177150d9f4bd7b9055d0ff43a4bb, type: 3}
+  title: Keylogger Killer
+  description: Keylogger sulit terdeteksi tanpa perangkat lunak khusus, tetapi pemain
+    yang cermat dapat mengidentifikasi potensi ancaman ini dengan pengetahuan dasar.
+  scoreRequired: 3000
