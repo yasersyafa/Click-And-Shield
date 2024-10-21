@@ -587,7 +587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 24.444296}
+  m_AnchoredPosition: {x: 0, y: 24.444275}
   m_SizeDelta: {x: -989.5293, y: -557.9205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489059014
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imagePrefab: {fileID: 6751201448766778992, guid: 41b29f8a740883c41ae52f72c487f590, type: 3}
   maxImage: 8
-  minImage: 5
+  minImage: 4
   parentPanel: {fileID: 489059013}
 --- !u!114 &1613006592
 MonoBehaviour:
