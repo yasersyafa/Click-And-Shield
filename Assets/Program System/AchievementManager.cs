@@ -7,6 +7,7 @@ public class AchievementManager : MonoBehaviour
     // public Dictionary<Achievement, bool> achievements = new();
     public List<Achievement> allAchievements = new();
     private List<string> unlockedAchievements = new();
+    public Queue<Achievement> rewardQueue = new();
 
     public void CheckForAchievement(int score) {
         foreach(var achievement in allAchievements) {
@@ -17,11 +18,19 @@ public class AchievementManager : MonoBehaviour
     }
 
     private void UnlockAchievement(Achievement badge) {
+        AddRewardToQueue(badge);
         unlockedAchievements.Add(badge.title);
     }
 
     public bool IsAchievementUnlocked(string title) {
         return unlockedAchievements.Contains(title);
+    }
+
+    public void AddRewardToQueue(Achievement badge) {
+        if(!IsAchievementUnlocked(badge.title)) {
+            rewardQueue.Enqueue(badge);
+            Debug.Log($"Kamu mendapatkan: {badge.title}");
+        }
     }
 
     public List<string> GetUnlockedAchievements() {
@@ -35,8 +44,4 @@ public class AchievementManager : MonoBehaviour
     public void LoadAchievements(List<string> savedAchievements) {
         unlockedAchievements = new List<string>(savedAchievements);
     }
-
-    // public bool GetBadge(Achievement badge) {
-    //     return achievements.ContainsKey(badge) ? true : false;
-    // }
 }
