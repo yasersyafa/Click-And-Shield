@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour {
         playerScore = 0;
         minigameTimer = 10f;
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 
     public void QuitApplication() {
