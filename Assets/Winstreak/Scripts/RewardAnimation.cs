@@ -22,6 +22,8 @@ public class RewardAnimation : MonoBehaviour
 
     void Start()
     {
+        // find achievement manager component
+        achievement = FindObjectOfType<AchievementManager>();
         // Assuming rewardPanel has an Image component for opacity animation
         rewardPanelImage = rewardPanel.GetComponent<Image>();
 
