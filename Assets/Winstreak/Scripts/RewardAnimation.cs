@@ -18,6 +18,7 @@ public class RewardAnimation : MonoBehaviour
 
     // Reference to the TextMeshProUGUI component
     private TextMeshProUGUI clickToNextTMPText;
+    private AchievementManager achievement;
 
     void Start()
     {
@@ -43,12 +44,14 @@ public class RewardAnimation : MonoBehaviour
 
     public void ShowRewardPanel()
     {
-        rewardPanel.SetActive(true);
-        StartCoroutine(AnimateRewardPanel());
-        StarBgAnimation(); // Start the star background animation (continuous)
+        if(achievement.rewardQueue.Count >= 1) {
+            rewardPanel.SetActive(true);
+            StartCoroutine(AnimateRewardPanel(achievement.rewardQueue.Dequeue()));
+            StarBgAnimation(); // Start the star background animation (continuous)
+        }
     }
 
-    private IEnumerator AnimateRewardPanel()
+    private IEnumerator AnimateRewardPanel(Achievement badge)
     {
         float duration = 0.5f;
         float elapsedTime = 0f;
@@ -64,7 +67,7 @@ public class RewardAnimation : MonoBehaviour
         }
 
         rewardPanelImage.color = targetColor;
-        StartCoroutine(CardAchievementAnimation());
+        StartCoroutine(CardAchievementAnimation(badge));
     }
 
     public void StarBgAnimation()
@@ -92,7 +95,7 @@ public class RewardAnimation : MonoBehaviour
         }
     }
 
-    public IEnumerator CardAchievementAnimation()
+    public IEnumerator CardAchievementAnimation(Achievement badge)
     {
         isCardRevealed = false;
         float moveDuration = 0.5f;
@@ -115,7 +118,7 @@ public class RewardAnimation : MonoBehaviour
         }
 
         yield return StartCoroutine(ShakeCard());
-        StartCoroutine(FadeToColor(cardAchievement, Color.white, 0.5f));
+        StartCoroutine(FadeToColor(cardAchievement, Color.white, 0.5f, badge));
     }
 
     private IEnumerator ShakeCard()
@@ -137,9 +140,10 @@ public class RewardAnimation : MonoBehaviour
 
     }
 
-    private IEnumerator FadeToColor(GameObject targetObject, Color targetColor, float duration)
+    private IEnumerator FadeToColor(GameObject targetObject, Color targetColor, float duration, Achievement badge)
     {
         Image targetImage = targetObject.GetComponent<Image>();
+        targetImage.sprite = badge.card;
         Color startColor = targetImage.color;
         float elapsedTime = 0f;
 
