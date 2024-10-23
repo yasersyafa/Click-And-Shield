@@ -32,7 +32,7 @@ public class RewardAnimation : MonoBehaviour
 
         cardRectTransform = cardAchievement.GetComponent<RectTransform>();
         originalCardColor = cardAchievement.GetComponent<Image>().color;
-        ShowRewardPanel();
+        // ShowRewardPanel();
     }
 
     void Update()
@@ -46,11 +46,9 @@ public class RewardAnimation : MonoBehaviour
 
     public void ShowRewardPanel()
     {
-        if(achievement.rewardQueue.Count >= 1) {
-            rewardPanel.SetActive(true);
-            StartCoroutine(AnimateRewardPanel(achievement.rewardQueue.Dequeue()));
-            StarBgAnimation(); // Start the star background animation (continuous)
-        }
+        rewardPanel.SetActive(true);
+        StartCoroutine(AnimateRewardPanel(achievement.rewardQueue.Dequeue()));
+        StarBgAnimation(); // Start the star background animation (continuous)
     }
 
     private IEnumerator AnimateRewardPanel(Achievement badge)

@@ -17,9 +17,13 @@ public class ScoreCounter : MonoBehaviour
     // Waktu animasi (1.5 detik)
     private readonly float countUpDuration = 1f;
     public AudioManager audioManager;
+    public RewardAnimation rewardAnimation;
+    private AchievementManager achievementManager;
 
     private void Start()
     {
+        rewardAnimation = FindObjectOfType<RewardAnimation>();
+        achievementManager = FindObjectOfType<AchievementManager>();
         // Mulai coroutine untuk menambah 1 skor
         scoreText.text = currentScore.ToString();
         Debug.Log($"your score: {currentScore}");
@@ -36,7 +40,11 @@ public class ScoreCounter : MonoBehaviour
             GameManager.instance.LoseMinigame();
             yield return new WaitForSeconds(0.15f);
             currentScore = 0;
-            GameManager.instance.QuitGame();
+            // GameManager.instance.QuitGame();
+            if(achievementManager.rewardQueue.Count >= 1) {
+                rewardAnimation.ShowRewardPanel();
+            }
+            else GameManager.instance.QuitGame();
         }else {
             audioManager.SetSFX(audioManager.sfxClips[0]);
             while (elapsedTime < countUpDuration)
