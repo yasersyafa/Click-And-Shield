@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
     {
         if (remainingImages <= 0)
         {
-            miniGameManager.Win();
+            miniGameManager.WinGame();
         }
     }
 }

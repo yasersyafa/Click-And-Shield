@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class MiniGameManager5 : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public GameObject cutsceneCanvas; //* UPDATE !!!
+    public VideoPlayer cutscenePlayer; //* UPDATE !!!
+    public VideoClip winClip, loseClip; //* UPDATE !!!
 
     private bool isPaused = false;
 
@@ -27,18 +31,26 @@ public class MiniGameManager5 : MonoBehaviour
         }
     }
 
-    public void Win()
+    public void WinGame() //* UPDATE !!!
     {
-        Debug.Log("Menang");
+        AudioManager.StopMusic();
+        cutsceneCanvas.SetActive(true); 
+        cutscenePlayer.clip = winClip;
+        cutscenePlayer.Play();
+        cutscenePlayer.loopPointReached += EndWinCutscene;
         GameManager.instance.WinMinigame();
-        GameManager.instance.GoToRewardScene();
+        // GameManager.instance.GoToRewardScene();
     }
 
-    public void GameOver()
+    public void GameOver() //* UPDATE !!!
     {
-        Debug.Log("Cupu");
+        AudioManager.StopMusic();
+        cutsceneCanvas.SetActive(true);
+        cutscenePlayer.clip = loseClip;
+        cutscenePlayer.Play();
+        cutscenePlayer.loopPointReached += EndLoseCutscene;
         GameManager.instance.LoseMinigame();
-        GameManager.instance.GoToRewardScene();
+        // GameManager.instance.GoToRewardScene();
     }
 
     public void RestartGame()
@@ -70,5 +82,19 @@ public class MiniGameManager5 : MonoBehaviour
     public void QuitGame()
     {
         GameManager.instance.QuitGame();
+    }
+
+    private void EndWinCutscene(VideoPlayer vp) //* UPDATE !!!
+    {
+        cutscenePlayer.loopPointReached -= EndWinCutscene;
+        Debug.Log("Win cutscene ended.");
+        GameManager.instance.GoToRewardScene();
+    }
+
+    public void EndLoseCutscene(VideoPlayer vp) //* UPDATE !!!
+    {
+        cutscenePlayer.loopPointReached -= EndLoseCutscene;
+        Debug.Log("Lose cutscene ended.");
+        GameManager.instance.GoToRewardScene();
     }
 }
