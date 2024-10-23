@@ -35,7 +35,7 @@ public class MiniGameManager : MonoBehaviour
         cutscenePlayer.Play();
         cutscenePlayer.loopPointReached += EndWinCutscene;
         GameManager.instance.WinMinigame();
-        GameManager.instance.GoToRewardScene();
+        // GameManager.instance.GoToRewardScene();
     }
 
     public void GameOver() //* UPDATE !!!
@@ -46,7 +46,7 @@ public class MiniGameManager : MonoBehaviour
         cutscenePlayer.Play();
         cutscenePlayer.loopPointReached += EndLoseCutscene;
         GameManager.instance.LoseMinigame();
-        GameManager.instance.GoToRewardScene();
+        // GameManager.instance.GoToRewardScene();
     }
 
     public void RestartGame()

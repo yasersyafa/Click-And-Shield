@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour {
     private int highScore = 0;
     public bool isGamePaused = false;
     private float minigameTimer = 10f;
+    public GameObject popUpModal;
 
     private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame4", "Minigame5"};
 
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         achievementManager = GetComponentInChildren<AchievementManager>();
+        PopUp(popUpModal);
         LoadGame();
     }
 
@@ -111,6 +114,9 @@ public class GameManager : MonoBehaviour {
             highScore = data.highScore;
             achievementManager.LoadAchievements(data.achievements);  // Memuat pencapaian yang tersimpan
         }
+        else {
+            PopUp(popUpModal);
+        }
     }
 
     private void AddQueue() {
@@ -119,5 +125,22 @@ public class GameManager : MonoBehaviour {
         foreach(string nameScene in minigames) {
             scenes.Enqueue(nameScene);
         }
+    }
+
+    private void PopUp(GameObject modalObject) {
+        modalObject.SetActive(true);
+        GameObject popup = modalObject.transform.GetChild(1).gameObject;
+        popup.transform.DOLocalMoveY(0f, 1f);
+    }
+
+    public void ClosePopUp(GameObject modalObject) {
+        GameObject popup = modalObject.transform.GetChild(1).gameObject;
+        StartCoroutine(ClosePopUpCoroutine(popup));
+    }
+
+    private IEnumerator ClosePopUpCoroutine(GameObject objectToClose) {
+        objectToClose.transform.DOLocalMoveY(-370f, 1f);
+        yield return new WaitForSeconds(1f);
+        objectToClose.transform.parent.gameObject.SetActive(false);
     }
 }
