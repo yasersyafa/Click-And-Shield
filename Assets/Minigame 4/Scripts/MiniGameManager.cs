@@ -11,6 +11,7 @@ public class MiniGameManager : MonoBehaviour
     public VideoPlayer cutscenePlayer; //* UPDATE !!!
     public VideoClip winClip, loseClip; //* UPDATE !!!
     private bool isPaused = false;
+    bool isGameOver = false;
 
     void Start()
     {
@@ -22,7 +23,11 @@ public class MiniGameManager : MonoBehaviour
         if(!isPaused) {
             Timer.instance.currentTimer -= Time.deltaTime;
             if(Timer.instance.currentTimer <= 0) {
-                GameOver();
+                if(!isGameOver) {
+                    isGameOver = true;
+                    GameOver();
+                }
+                
             }
         }
     }

@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
     {
         countdown = manager != null ? manager.GetTimer() : 10f;
         currentTimer = countdown;
+        Debug.Log(currentTimer);
         barTimer.fillAmount = 1;
         
     }

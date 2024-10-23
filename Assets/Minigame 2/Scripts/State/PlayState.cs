@@ -16,7 +16,7 @@ namespace typeProtect {
         }
         public void EnterState()
         {
-            // Debug.Log("Play State");
+            Debug.Log(stateManager.isGamePaused);
             currentWord = wordBank.GetTargetWord();
             stateManager.currentText.text = currentWord;
         }

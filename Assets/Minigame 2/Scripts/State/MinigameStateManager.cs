@@ -46,5 +46,9 @@ namespace typeProtect {
             isGamePaused = false;
             Time.timeScale = 1;
         }
+
+        public void QuitGame() {
+            manager.QuitGame();
+        }
     }
 }
