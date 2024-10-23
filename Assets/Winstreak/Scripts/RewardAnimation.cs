@@ -10,7 +10,7 @@ public class RewardAnimation : MonoBehaviour
     public GameObject cardAchievement;
     public GameObject clickToNext_Text; // This is the TMP text object
 
-    public bool isCardRevealed = true;
+    public bool isCardRevealed = false;
 
     private Image rewardPanelImage;
     private RectTransform cardRectTransform;
@@ -32,23 +32,30 @@ public class RewardAnimation : MonoBehaviour
 
         cardRectTransform = cardAchievement.GetComponent<RectTransform>();
         originalCardColor = cardAchievement.GetComponent<Image>().color;
-        // ShowRewardPanel();
+        ShowRewardPanel();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isCardRevealed)
+        if (Input.GetMouseButtonDown(0) && isCardRevealed)
         {
+            ShowRewardPanel();
             ClickToNextAnimation();
-            isCardRevealed = true;
+            isCardRevealed = false;
         }
     }
 
     public void ShowRewardPanel()
     {
-        rewardPanel.SetActive(true);
-        StartCoroutine(AnimateRewardPanel(achievement.rewardQueue.Dequeue()));
-        StarBgAnimation(); // Start the star background animation (continuous)
+        if(achievement.rewardQueue.Count >= 1) {
+            rewardPanel.SetActive(true);
+            StartCoroutine(AnimateRewardPanel(achievement.rewardQueue.Dequeue()));
+            StarBgAnimation(); // Start the star background animation (continuous)
+        }
+        else
+        {
+            
+        }
     }
 
     private IEnumerator AnimateRewardPanel(Achievement badge)
@@ -112,10 +119,10 @@ public class RewardAnimation : MonoBehaviour
 
         cardRectTransform.anchoredPosition = targetPosition;
 
-        while (!Input.GetMouseButtonDown(0))
-        {
-            yield return null;
-        }
+        // while (!Input.GetMouseButtonDown(0))
+        // {
+        //     yield return null;
+        // }
 
         yield return StartCoroutine(ShakeCard());
         StartCoroutine(FadeToColor(cardAchievement, Color.white, 0.5f, badge));
@@ -155,7 +162,7 @@ public class RewardAnimation : MonoBehaviour
         }
 
         clickToNext_Text.SetActive(true);
-        isCardRevealed = false; // Allow interaction again
+        isCardRevealed = true; // Allow interaction again
     }
 
     // Updated to handle TextMeshProUGUI component
