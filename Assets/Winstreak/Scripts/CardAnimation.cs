@@ -8,6 +8,7 @@ public class CardAnimation : MonoBehaviour
 {
     public GameObject starBg;
     public RectTransform cardTransform; // Referensi ke RectTransform kartu
+    public TextMeshProUGUI cardTitle; // Referensi ke teks judul kartu
     public Image cardImage; // Referensi ke Image kartu
     public float animationDuration = 0.5f; // Durasi animasi
     public float waitDuration = 0.1f; // Durasi tunggu
@@ -38,6 +39,7 @@ public class CardAnimation : MonoBehaviour
         cardImage.color = Color.black; // Ubah warna kartu menjadi hitam
         isAnimating = true;
         rewardPanel.SetActive(true);
+        cardTitle.gameObject.SetActive(false);
         
         if(!isrevealed) {
             rewardPanelCanvasGroup.alpha = 0f; // Set awal ke 0 (invisible)
@@ -85,6 +87,7 @@ public class CardAnimation : MonoBehaviour
         AudioManager.StopMusic();
         AudioManager.instance.sfxSource.loop = false;
         AudioManager.instance.SetSFX(AudioManager.instance.sfxClips[2]);
+
         cardImage.sprite = badge.card;
         elapsedTime = 0f;
         while (elapsedTime < animationDuration)
@@ -93,6 +96,9 @@ public class CardAnimation : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        cardTitle.text = badge.title;
+        cardTitle.gameObject.SetActive(true);
 
         // Tampilkan teks "click to next"
         clickText.gameObject.SetActive(true);
@@ -103,6 +109,7 @@ public class CardAnimation : MonoBehaviour
 
         // Sembunyikan teks
         clickText.gameObject.SetActive(false);
+        cardTitle.gameObject.SetActive(false);
 
         // Cek apakah ada kartu lain untuk di-reveal
         if (HasNextCard())
