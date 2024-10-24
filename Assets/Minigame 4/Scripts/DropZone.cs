@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using dataRush;
 
 public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public DraggableObject.ObjectType acceptedType;
-    public MiniGameManager miniGameManager;
+    private MinigameStateManager stateManager;
 
     private Vector3 originalScale; 
 
     private void Start()
     {
         originalScale = transform.localScale;
+        stateManager = FindObjectOfType<MinigameStateManager>();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -26,14 +28,15 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
             {
                 Debug.Log("Benar");
                 Destroy(draggableObject.gameObject);
-                miniGameManager.WinGame();
+                stateManager.SetState(new dataRush.WinState(stateManager));
             }
             else
             {
                 // Untuk objek yang salah
                 Debug.Log("Salah");
                 Destroy(draggableObject.gameObject);
-                miniGameManager.GameOver();
+                stateManager.SetState(new dataRush.LoseState(stateManager));
+                
             }
         }
 
