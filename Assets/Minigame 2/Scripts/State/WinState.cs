@@ -20,7 +20,7 @@ namespace typeProtect {
 
             // Call TriggerWin from GameManager and pass the win animation clip
             // minigame3Manager.gameManager.TriggerWin(minigame3Manager.winClip);
-            GameManager.instance.WinMinigame();
+            
         }
         public void UpdateState()
         {
@@ -36,6 +36,7 @@ namespace typeProtect {
         {
             stateManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
             Debug.Log("Win cutscene ended.");
+            GameManager.instance.WinMinigame();
             GameManager.instance.GoToRewardScene();
         }
 

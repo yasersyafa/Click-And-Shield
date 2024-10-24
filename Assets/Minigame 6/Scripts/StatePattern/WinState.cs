@@ -22,7 +22,7 @@ namespace backupData
 
             // Call TriggerWin from GameManager and pass the win animation clip
             // minigameManager.gameManager.TriggerWin(minigameManager.winClip);
-            GameManager.instance.WinMinigame();
+            
 
         }
 
@@ -34,6 +34,7 @@ namespace backupData
         {
             minigameManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
             Debug.Log("Win cutscene ended.");
+            GameManager.instance.WinMinigame();
             GameManager.instance.GoToRewardScene();
         }
     }

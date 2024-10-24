@@ -23,7 +23,7 @@ namespace lindungiDataPribadi
 
             // Call TriggerLose from GameManager and pass the lose animation clip
             // minigame3Manager.gameManager.TriggerLose(minigame3Manager.loseClip);
-            GameManager.instance.LoseMinigame();
+            
         }
 
         public void UpdateState() { }
@@ -34,6 +34,7 @@ namespace lindungiDataPribadi
         {
             minigameManager.cutscenePlayer.loopPointReached -= EndLoseCutscene;
             Debug.Log("You lose!");
+            GameManager.instance.LoseMinigame();
             GameManager.instance.GoToRewardScene();
         }
     }

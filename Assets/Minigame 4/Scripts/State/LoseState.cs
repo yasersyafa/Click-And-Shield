@@ -18,7 +18,7 @@ namespace dataRush {
             stateManager.cutscenePlayer.clip = stateManager.loseClip;
             stateManager.cutscenePlayer.Play();
             stateManager.cutscenePlayer.loopPointReached += EndLoseCutscene;
-            GameManager.instance.LoseMinigame();
+            
         }
 
         public void UpdateState()
@@ -34,6 +34,7 @@ namespace dataRush {
         private void EndLoseCutscene(VideoPlayer vp) {
             stateManager.cutscenePlayer.loopPointReached -= EndLoseCutscene;
             Debug.Log("Win cutscene ended.");
+            GameManager.instance.LoseMinigame();
             GameManager.instance.GoToRewardScene();
         }
     }

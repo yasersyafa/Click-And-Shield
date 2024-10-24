@@ -21,7 +21,7 @@ public class WinState : IMinigameState
 
         // Call TriggerWin from GameManager and pass the win animation clip
         // minigameManager.gameManager.TriggerWin(minigameManager.winClip);
-        GameManager.instance.WinMinigame();
+        
 
     }
 
@@ -33,6 +33,7 @@ public class WinState : IMinigameState
     {
         minigameManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
         Debug.Log("Win cutscene ended.");
+        GameManager.instance.WinMinigame();
         GameManager.instance.GoToRewardScene();
     }
 }

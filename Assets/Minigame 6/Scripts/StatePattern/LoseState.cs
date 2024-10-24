@@ -22,7 +22,7 @@ namespace backupData
 
             // Call TriggerLose from GameManager and pass the lose animation clip
             // minigame3Manager.gameManager.TriggerLose(minigame3Manager.loseClip);
-            GameManager.instance.LoseMinigame();
+            
         }
 
         public void UpdateState() { }
@@ -33,6 +33,7 @@ namespace backupData
         {
             minigameManager.cutscenePlayer.loopPointReached -= EndLoseCutscene;
             Debug.Log("You lose!");
+            GameManager.instance.LoseMinigame();
             GameManager.instance.GoToRewardScene();
         }
     }
