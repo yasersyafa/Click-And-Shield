@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
     private float minigameTimer = 10f;
     public GameObject popUpModal;
 
-    private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame4", "Minigame5"};
+    private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame5"};
 
     void Awake() {
         if(instance == null) {
