@@ -13,7 +13,7 @@ namespace dataRush {
 
         public void EnterState()
         {
-            AudioManager.StopMusic();
+            // AudioManager.StopMusic();
             stateManager.cutsceneCanvas.SetActive(true);
             stateManager.cutscenePlayer.clip = stateManager.loseClip;
             stateManager.cutscenePlayer.Play();

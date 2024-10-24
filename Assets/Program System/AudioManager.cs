@@ -13,7 +13,7 @@ this script is reusable
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] public AudioSource sfxSource;
     [Space]
     [Header("music")]
     public List<AudioClip> musicClips = new();

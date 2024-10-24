@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 21300000, guid: deee891c70e0d4eb3978fc2f2c217057, type: 3}
   title: Spoof Slayer
-  description: Serangan spoofing sering terjadi dalam bentuk email atau situs web
-    palsu.
+  description: Spoofing is an attempt to impersonate a legitimate entity, such as
+    an email address, website, or phone number, to deceive users. The goal is to
+    obtain sensitive information or gain unauthorized access. This type of attack
+    can be highly convincing and difficult to detect.
   scoreRequired: 100
+  isUnlocked: 0

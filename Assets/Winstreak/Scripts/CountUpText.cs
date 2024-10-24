@@ -18,6 +18,7 @@ public class ScoreCounter : MonoBehaviour
     private readonly float countUpDuration = 1f;
     public AudioManager audioManager;
     public CardAnimation cardAnimation;
+    public Animator charAnimator;
     private AchievementManager achievementManager;
 
     private void Start()
@@ -38,7 +39,8 @@ public class ScoreCounter : MonoBehaviour
         
         if(!GameManager.instance.isWin) {
             GameManager.instance.LoseMinigame();
-            yield return new WaitForSeconds(0.15f);
+            charAnimator.SetTrigger("Lose");
+            yield return new WaitForSeconds(5f);
             currentScore = 0;
             // GameManager.instance.QuitGame();
             if(achievementManager.rewardQueue.Count >= 1) {

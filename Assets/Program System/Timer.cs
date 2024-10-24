@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        countdown = 10f;
+        countdown = manager != null ? manager.GetTimer() : 10f;
         currentTimer = countdown;
         Debug.Log(currentTimer);
         barTimer.fillAmount = 1;

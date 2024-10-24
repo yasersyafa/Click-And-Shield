@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
     public int playerScore = 0;
     private int highScore = 0;
     public bool isGamePaused = false;
-    private float minigameTimer = 1f;
+    private float minigameTimer = 10f;
     public GameObject popUpModal;
 
     private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame5", "Minigame4"};
@@ -69,10 +69,11 @@ public class GameManager : MonoBehaviour {
         
 
         // reset all 
+        Time.timeScale = 1f;
         playerScore = 0;
-        minigameTimer = 1f;
+        minigameTimer = 10f;
         SceneManager.LoadScene("MainMenu");
-        Time.timeScale = minigameTimer;
+        
     }
 
     public void QuitApplication() {
@@ -84,19 +85,22 @@ public class GameManager : MonoBehaviour {
         playerScore += 100;
 
         if(playerScore >= 300 && playerScore < 700) {
-            minigameTimer = 1.5f;
-            Time.timeScale = minigameTimer;
+            minigameTimer = 7f;
+            
         }
-        else if(playerScore >= 700) {
-            minigameTimer = 2f;
-            Time.timeScale = minigameTimer;
+        else if(playerScore >= 700 && playerScore < 1000) {
+            minigameTimer = 5f;
+            
         }
-        else if(playerScore >= 1000) {
+        else if(playerScore >= 1000 && playerScore < 1200) {
+            minigameTimer = 3f;
+            
+        }
+        else if(playerScore >= 1200 ) {
             minigameTimer = 2.5f;
-            Time.timeScale = minigameTimer;
         }
         else {
-            Time.timeScale = 1f;
+            minigameTimer = 10f;
         }
     }
 

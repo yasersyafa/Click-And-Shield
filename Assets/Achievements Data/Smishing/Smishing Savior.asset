@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 21300000, guid: ee43cc75f7dcf4bb38d2c9c97592f7f8, type: 3}
   title: Smishing Savior
-  description: Smishing menjadi semakin umum dengan pesan teks yang menipu, namun
-    mudah diatasi dengan kesadaran dasar tentang penipuan.
+  description: Smishing is a form of phishing that uses SMS to trick victims into
+    giving up personal information. The messages usually appear to be from a trusted
+    source. However, the goal is to steal data such as passwords or financial information.
   scoreRequired: 300
+  isUnlocked: 0

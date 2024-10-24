@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using DG.Tweening;
 
 public class CardAnimation : MonoBehaviour
 {
@@ -14,23 +15,36 @@ public class CardAnimation : MonoBehaviour
     public Color revealColor = Color.white; // Warna setelah reveal
     public TextMeshProUGUI clickText; // Referensi ke teks "click to next"
     public GameObject rewardPanel;
+    public CanvasGroup rewardPanelCanvasGroup; // Referensi ke CanvasGroup dari rewardPanel
     private AchievementManager achievementManager;
     private Color originalColor;
     private bool isAnimating;
+    private bool isrevealed;
 
     void Start()
     {
         originalColor = cardImage.color; // Simpan warna asli
+        isrevealed = false;
         achievementManager = FindObjectOfType<AchievementManager>();
+        StartCoroutine(AnimateStarBg()); // Animasi StarBg berjalan terus-menerus
+        // 0. RewardPanel dari Opacity 0 ke 220 secara smooth
+        
     }
 
     public IEnumerator AnimateCard(Achievement badge)
     {
-        AudioManager.instance.SetSFX(AudioManager.instance.sfxClips[1]);
-        StartCoroutine(AnimateStarBg());
+        AudioManager.instance.SetMusic(AudioManager.instance.sfxClips[1]);
+        AudioManager.instance.sfxSource.loop = true;
         cardImage.color = Color.black; // Ubah warna kartu menjadi hitam
         isAnimating = true;
         rewardPanel.SetActive(true);
+        
+        if(!isrevealed) {
+            rewardPanelCanvasGroup.alpha = 0f; // Set awal ke 0 (invisible)
+            rewardPanelCanvasGroup.DOFade(1f, 0.5f); // 220/255 = 0.86, transisi selama 0.5 detik
+            isrevealed = true;
+        }
+        
 
         // 1. Kartu muncul dari bawah ke tengah
         cardTransform.localPosition = new Vector3(cardTransform.localPosition.x, -200, cardTransform.localPosition.z);
@@ -42,6 +56,8 @@ public class CardAnimation : MonoBehaviour
             yield return null;
         }
 
+
+
         // Tunggu 0.1 detik
         yield return new WaitForSeconds(waitDuration);
 
@@ -49,20 +65,25 @@ public class CardAnimation : MonoBehaviour
         float shakeSpeed = 100f; // Kecepatan getar
         float shakeAmount = 5f; // Jarak getar
 
-        while (elapsedTime < shakeDuration)
+        while (!Input.GetMouseButtonDown(0))
         {
             float xOffset = Mathf.Sin(elapsedTime * shakeSpeed) * shakeAmount; // Menghitung offset x
             cardTransform.localPosition = new Vector3(xOffset, 0, cardTransform.localPosition.z);
             elapsedTime += Time.deltaTime;
+            clickText.gameObject.SetActive(true);
+            clickText.text = "Click to reveal";
             yield return null;
         }
+
+        clickText.gameObject.SetActive(false);
 
         // Kembali ke posisi semula
         cardTransform.localPosition = new Vector3(0, 0, cardTransform.localPosition.z);
 
         // 4. Ubah warna kartu
         // stop the sfxClips[1]
-        AudioManager.StopSfx();
+        AudioManager.StopMusic();
+        AudioManager.instance.sfxSource.loop = false;
         AudioManager.instance.SetSFX(AudioManager.instance.sfxClips[2]);
         cardImage.sprite = badge.card;
         elapsedTime = 0f;
@@ -75,6 +96,7 @@ public class CardAnimation : MonoBehaviour
 
         // Tampilkan teks "click to next"
         clickText.gameObject.SetActive(true);
+        clickText.text = "Click to next";
 
         // Tunggu input klik
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
@@ -97,23 +119,26 @@ public class CardAnimation : MonoBehaviour
 
     private IEnumerator AnimateStarBg()
     {
-        float rotationSpeed = 90f;
-        float scaleSpeed = 0.7f;
-        float scaleAmount = 0.3f;
+        float rotationSpeed = 90f; // Kecepatan rotasi konstan
+        float scaleSpeed = 0.7f;   // Kecepatan scaling konstan
+        float scaleAmount = 0.3f;  // Jumlah scaling
 
-        Vector3 originalScale = starBg.transform.localScale;
-        Vector3 targetScale = new Vector3(originalScale.x - scaleAmount, originalScale.y - scaleAmount, originalScale.z);
-        float t = 0f;
+        float t = 0f;  // Ini akan melacak waktu untuk keperluan scaling
 
-        while (true)
+        while (true) // Loop berjalan terus-menerus
         {
+            // Rotasi konstan
             starBg.transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
-            t = scaleSpeed * Time.deltaTime;
-            float scaleFactor = Mathf.PingPong(t, 1);
-            starBg.transform.localScale = Vector3.Lerp(originalScale, targetScale, scaleFactor);
+
+            // Smooth scaling menggunakan PingPong
+            t += Time.deltaTime * scaleSpeed;
+            float scaleFactor = Mathf.PingPong(t, 1); // Oscillates between 0 and 1
+
+            // Terapkan perubahan skala jika diperlukan
             yield return null;
         }
     }
+
 
     private bool HasNextCard()
     {

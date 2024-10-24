@@ -60,11 +60,13 @@ public class SwipeEffect : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         {
             isResetAble = false;
             StartSwipeAnimation(-500); // Start animation moving left
+            AudioManager.instance.SetSFX(AudioManager.instance.sfxClips[0]);
         }
         else if (imageAnchor.localPosition.x >= 50)
         {
             isResetAble = false;
             StartSwipeAnimation(500); // Start animation moving right
+            AudioManager.instance.SetSFX(AudioManager.instance.sfxClips[0]);
         }
         else
         {

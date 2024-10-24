@@ -14,7 +14,7 @@ namespace backupData
 
         public void EnterState()
         {
-            AudioManager.StopMusic();
+            // AudioManager.StopMusic();
             minigameManager.cutsceneCanvas.SetActive(true);
             minigameManager.cutscenePlayer.clip = minigameManager.loseClip;
             minigameManager.cutscenePlayer.Play();

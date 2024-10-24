@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 21300000, guid: e97a92f3ee5c74bf1a78a882b11b8b02, type: 3}
   title: DDoS Defender
-  description: DDoS sering terjadi pada skala besar dan menjadi lebih umum.
+  description: DDoS (Distributed Denial of Service ) is an attack that makes online
+    services unavailable by overwhelming the server with excessive traffic. This
+    attack comes from multiple sources at the same time. As a result, the server
+    becomes overloaded and stops functioning.
   scoreRequired: 1100
+  isUnlocked: 0

@@ -1300,7 +1300,8 @@ MonoBehaviour:
   musicSource: {fileID: 248227881}
   sfxSource: {fileID: 624599462}
   musicClips: []
-  sfxClips: []
+  sfxClips:
+  - {fileID: 8300000, guid: bb11e7cd95ff94b25a6f3b2bd6ff3bea, type: 3}
 --- !u!114 &1613006593
 MonoBehaviour:
   m_ObjectHideFlags: 0

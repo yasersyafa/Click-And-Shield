@@ -24,7 +24,7 @@ namespace backupData
             // check win condition
             if (minigameManager.loadingBackupBar.fillAmount >= 0.98)
             {
-                 minigameManager.SetState(new WinState(minigameManager));
+                minigameManager.SetState(new WinState(minigameManager));
             }
 
             // Check lose condition

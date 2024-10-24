@@ -13,7 +13,7 @@ public class WinState : IMinigameState
 
     public void EnterState()
     {
-        AudioManager.StopMusic();
+        // AudioManager.StopMusic();
         minigameManager.cutsceneCanvas.SetActive(true);
         minigameManager.cutscenePlayer.clip = minigameManager.winClip;
         minigameManager.cutscenePlayer.Play();
