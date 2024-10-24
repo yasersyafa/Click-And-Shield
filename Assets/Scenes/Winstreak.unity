@@ -649,6 +649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842967020}
   - component: {fileID: 842967019}
+  - component: {fileID: 842967021}
   m_Layer: 0
   m_Name: Reward Manager
   m_TagString: Untagged
@@ -663,7 +664,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842967018}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cef9a9ccbdc73841a3c0337b5889b0a, type: 3}
   m_Name: 
@@ -688,6 +689,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842967021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842967018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2741ac9194d91ac4986834d556819ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starBg: {fileID: 59019334}
+  cardTransform: {fileID: 392771846}
+  cardImage: {fileID: 392771847}
+  animationDuration: 0.5
+  waitDuration: 0.1
+  shakeDuration: 1
+  revealColor: {r: 1, g: 1, b: 1, a: 1}
+  clickText: {fileID: 612061211}
+  rewardPanel: {fileID: 1153590827}
 --- !u!1 &845126567
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1055934750}
   audioManager: {fileID: 845126568}
+  cardAnimation: {fileID: 0}
 --- !u!114 &1055934750
 MonoBehaviour:
   m_ObjectHideFlags: 0

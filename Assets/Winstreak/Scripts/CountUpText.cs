@@ -17,12 +17,12 @@ public class ScoreCounter : MonoBehaviour
     // Waktu animasi (1.5 detik)
     private readonly float countUpDuration = 1f;
     public AudioManager audioManager;
-    public RewardAnimation rewardAnimation;
+    public CardAnimation cardAnimation;
     private AchievementManager achievementManager;
 
     private void Start()
     {
-        rewardAnimation = FindObjectOfType<RewardAnimation>();
+        cardAnimation = FindObjectOfType<CardAnimation>();
         achievementManager = FindObjectOfType<AchievementManager>();
         // Mulai coroutine untuk menambah 1 skor
         scoreText.text = currentScore.ToString();
@@ -42,7 +42,7 @@ public class ScoreCounter : MonoBehaviour
             currentScore = 0;
             // GameManager.instance.QuitGame();
             if(achievementManager.rewardQueue.Count >= 1) {
-                rewardAnimation.ShowRewardPanel();
+                StartCoroutine(cardAnimation.AnimateCard(achievementManager.rewardQueue.Dequeue()));
             }
             else GameManager.instance.QuitGame();
         }else {
