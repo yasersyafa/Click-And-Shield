@@ -449,7 +449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 240, y: 64}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &341555035
@@ -1112,13 +1112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101880aae6be6d24592eb2cfec531f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 790987910}
-  cutsceneCanvas: {fileID: 1481946742}
-  cutscenePlayer: {fileID: 1966717664}
-  winClip: {fileID: 32900000, guid: ab09cfa2fe98644e3a2692516ba402d0, type: 3}
-  loseClip: {fileID: 32900000, guid: 15c06bb68892e4409bfc8389a2073179, type: 3}
-  isPaused: 0
-  isGameOver: 0
 --- !u!114 &934972307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,6 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c810261ca58f742908d93c7d4afe6f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialText: {fileID: 341555034}
   cutscenePlayer: {fileID: 1966717664}
   winClip: {fileID: 32900000, guid: ab09cfa2fe98644e3a2692516ba402d0, type: 3}
   loseClip: {fileID: 32900000, guid: 15c06bb68892e4409bfc8389a2073179, type: 3}

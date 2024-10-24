@@ -847,7 +847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -135}
+  m_AnchoredPosition: {x: 0, y: -273}
   m_SizeDelta: {x: 328, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1228918029
@@ -1317,6 +1317,7 @@ MonoBehaviour:
   trojanPrefab: {fileID: 6751201448766778992, guid: 41b29f8a740883c41ae52f72c487f590, type: 3}
   maxTrojan: 5
   minTrojan: 3
+  tutorialText: {fileID: 1228918028}
   cutsceneCanvas: {fileID: 2011065914}
   cutscenePlayer: {fileID: 1334257133}
   winClip: {fileID: 32900000, guid: cdc9e79c0e64d6d408c95e0f7a679405, type: 3}

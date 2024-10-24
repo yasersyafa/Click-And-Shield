@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
+using DG.Tweening;
 namespace undanganApk
 {
     public class MinigameStateManager : MonoBehaviour
@@ -9,6 +10,7 @@ namespace undanganApk
         public VideoPlayer cutscenePlayer;
         public VideoClip winClip, loseClip;
         public bool isGamePaused = false;
+        public RectTransform[] tutorialText;
 
         private GameManager gameManager;
         // public AnimationClip winClip;
@@ -18,6 +20,8 @@ namespace undanganApk
 
         void Start()
         {
+            tutorialText[0].DOAnchorPos(new Vector2(40f, tutorialText[0].anchoredPosition.y), 0.3f);
+            tutorialText[1].DOAnchorPos(new Vector2(-20f, tutorialText[1].anchoredPosition.y), 0.4f);
             gameManager = GameManager.instance;
             SetState(new PlayState(this)); // Start with the start animation state
         }

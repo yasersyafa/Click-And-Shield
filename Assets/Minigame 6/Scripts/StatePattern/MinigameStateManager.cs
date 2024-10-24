@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using backupData;
+using DG.Tweening;
 
 namespace backupData
 {
@@ -9,6 +10,7 @@ namespace backupData
     {
         private IMinigameState currentState;
         public Image loadingBackupBar;
+        public RectTransform[] tutorialText;
         
         public GameObject cutsceneCanvas;
         public VideoPlayer cutscenePlayer;
@@ -25,6 +27,8 @@ namespace backupData
 
         void Start()
         {
+            tutorialText[0].DOAnchorPos(new Vector2(tutorialText[0].anchoredPosition.x, -38f), 0.2f);
+            tutorialText[1].DOAnchorPos(new Vector2(tutorialText[1].anchoredPosition.x, -67f), 0.5f);
             gameManager = GameManager.instance;
             audioManager = FindObjectOfType<AudioManager>();
             SetState(new PlayState(this)); // Start with the start animation state

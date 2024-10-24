@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = minigameTimer;
         }
         else if(playerScore >= 1000) {
-            minigameTimer = 3f;
+            minigameTimer = 2.5f;
             Time.timeScale = minigameTimer;
         }
         else {

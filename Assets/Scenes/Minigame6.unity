@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -67}
+  m_AnchoredPosition: {x: 0, y: 40.99997}
   m_SizeDelta: {x: 240, y: 19}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &110116033
@@ -625,8 +625,8 @@ RectTransform:
   - {fileID: 1052426584}
   - {fileID: 1682671025}
   - {fileID: 1751560931}
-  - {fileID: 1331143077}
   - {fileID: 110116032}
+  - {fileID: 1331143077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1468,7 +1468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -38}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 167, y: 29}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1331143078
@@ -1852,6 +1852,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingBackupBar: {fileID: 1334812821}
+  tutorialText:
+  - {fileID: 1331143077}
+  - {fileID: 110116032}
   cutsceneCanvas: {fileID: 1202422580}
   cutscenePlayer: {fileID: 238555484}
   winClip: {fileID: 32900000, guid: 29825876eb4542a45ad4d6102d20abc5, type: 3}

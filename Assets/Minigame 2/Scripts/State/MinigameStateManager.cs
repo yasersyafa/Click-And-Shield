@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -12,6 +13,8 @@ namespace typeProtect {
         public TextMeshProUGUI currentText;
         public bool isGamePaused = false;
 
+        public RectTransform tutorialText;
+
         public GameObject cutsceneCanvas;
         public VideoPlayer cutscenePlayer;
         public VideoClip winClip, loseClip;
@@ -21,6 +24,7 @@ namespace typeProtect {
         // Start is called before the first frame update
         void Start()
         {
+            tutorialText.DOAnchorPos(new Vector2(tutorialText.anchoredPosition.x, 10f), 0.1f);
             manager = GameManager.instance;
             SetState(new typeProtect.PlayState(this));
         }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using DG.Tweening;
 
 namespace dataRush {
     public class MinigameStateManager : MonoBehaviour
     {
         private IMinigameState currentState;
         private GameManager manager;
+        public RectTransform tutorialText;
         public VideoPlayer cutscenePlayer;
         public VideoClip winClip, loseClip;
         public GameObject cutsceneCanvas;
@@ -16,6 +18,7 @@ namespace dataRush {
         // Start is called before the first frame update
         void Start()
         {
+            tutorialText.DOAnchorPos(new Vector2(tutorialText.anchoredPosition.x, -50f), 0.2f);
             manager = GameManager.instance;
             draggableObject = FindObjectOfType<DraggableObject>();
             SetState(new dataRush.PlayState(this));

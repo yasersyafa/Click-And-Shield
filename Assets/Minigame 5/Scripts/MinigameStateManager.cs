@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using DG.Tweening;
 
 namespace lindungiDataPribadi
 {
@@ -14,6 +15,7 @@ namespace lindungiDataPribadi
         public GameObject trojanPrefab;
         public int maxTrojan = 5;
         public int minTrojan = 3;
+        public RectTransform tutorialText;
 
 
         public GameObject cutsceneCanvas;
@@ -28,6 +30,7 @@ namespace lindungiDataPribadi
 
         void Start()
         {
+            tutorialText.DOAnchorPos(new Vector2(tutorialText.anchoredPosition.x, -135f), 0.3f);
             gameManager = GameManager.instance;
             SetState(new PlayState(this)); // Start with the start animation state
         }

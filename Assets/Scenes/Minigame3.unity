@@ -488,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -60}
+  m_AnchoredPosition: {x: -180, y: -60}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &378359675
@@ -1344,6 +1344,9 @@ MonoBehaviour:
   winClip: {fileID: 32900000, guid: 5d6647dcb9b99364bbe96dfb1ff92404, type: 3}
   loseClip: {fileID: 32900000, guid: 72c8a73285d26774d95135ea0ee73d1a, type: 3}
   isGamePaused: 0
+  tutorialText:
+  - {fileID: 378359674}
+  - {fileID: 1526323912}
 --- !u!114 &1421807563 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 358748862492601437, guid: 313d6bbe1c5f5a54eabedcf51a07c03d, type: 3}
@@ -1616,7 +1619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 172, y: 0}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1526323913
