@@ -669,11 +669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cef9a9ccbdc73841a3c0337b5889b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardPanel: {fileID: 1153590827}
-  starBg: {fileID: 59019334}
-  cardAchievement: {fileID: 392771845}
-  clickToNext_Text: {fileID: 612061209}
-  isCardRevealed: 1
 --- !u!4 &842967020
 Transform:
   m_ObjectHideFlags: 0
@@ -744,6 +739,8 @@ MonoBehaviour:
   musicClips: []
   sfxClips:
   - {fileID: 8300000, guid: 3172b41adcf6d4266af110daaa1988e3, type: 3}
+  - {fileID: 8300000, guid: 940e6ff4376c7964b8c975a50894ef30, type: 3}
+  - {fileID: 8300000, guid: 78270785884d8304a9adf67d51b7a9d3, type: 3}
 --- !u!4 &845126569
 Transform:
   m_ObjectHideFlags: 0

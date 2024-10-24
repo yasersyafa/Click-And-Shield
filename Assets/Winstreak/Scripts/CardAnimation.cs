@@ -26,6 +26,7 @@ public class CardAnimation : MonoBehaviour
 
     public IEnumerator AnimateCard(Achievement badge)
     {
+        AudioManager.instance.SetSFX(AudioManager.instance.sfxClips[1]);
         StartCoroutine(AnimateStarBg());
         cardImage.color = Color.black; // Ubah warna kartu menjadi hitam
         isAnimating = true;
@@ -60,6 +61,9 @@ public class CardAnimation : MonoBehaviour
         cardTransform.localPosition = new Vector3(0, 0, cardTransform.localPosition.z);
 
         // 4. Ubah warna kartu
+        // stop the sfxClips[1]
+        AudioManager.StopSfx();
+        AudioManager.instance.SetSFX(AudioManager.instance.sfxClips[2]);
         cardImage.sprite = badge.card;
         elapsedTime = 0f;
         while (elapsedTime < animationDuration)
