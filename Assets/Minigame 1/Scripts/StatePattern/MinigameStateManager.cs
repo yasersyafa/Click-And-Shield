@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -9,6 +10,7 @@ namespace tangkapPhiser
         public GameObject ParentEmail, cutsceneCanvas;
         public VideoPlayer cutscenePlayer;
         public VideoClip winClip, loseClip;
+        public RectTransform[] tutorialText;
         
         public bool isGamePaused = false;
 
@@ -18,6 +20,9 @@ namespace tangkapPhiser
 
         void Start()
         {
+            tutorialText[0].DOAnchorPos(new Vector2(34f, tutorialText[0].anchoredPosition.y), 0.5f);
+            tutorialText[1].DOAnchorPos(new Vector2(-34f, tutorialText[1].anchoredPosition.y), 0.5f);
+            // tutorialText[1].DOAnchorPosX(-34f, 0.5f);
             gameManager = GameManager.instance;
             SetState(new PlayState(this)); // Start with the start animation state
         }

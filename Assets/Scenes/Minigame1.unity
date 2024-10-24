@@ -1408,7 +1408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -34, y: 30}
+  m_AnchoredPosition: {x: 279, y: 30}
   m_SizeDelta: {x: 282, y: 38}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1177929011
@@ -2379,6 +2379,9 @@ MonoBehaviour:
   cutscenePlayer: {fileID: 492580687}
   winClip: {fileID: 32900000, guid: 6e7891eb17b020c4c981bec586b6f8be, type: 3}
   loseClip: {fileID: 32900000, guid: a19e38328c0879648ab89c253c09451a, type: 3}
+  tutorialText:
+  - {fileID: 952541275}
+  - {fileID: 1177929010}
   isGamePaused: 0
 --- !u!4 &1905526086
 Transform:
