@@ -67,5 +67,10 @@ public class AudioManager : MonoBehaviour
         instance.musicSource.Stop();
     }
 
+    public static void StopSfx()
+    {
+        instance.sfxSource.Stop();
+    }
+
 
 }
