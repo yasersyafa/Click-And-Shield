@@ -72,5 +72,10 @@ public class AudioManager : MonoBehaviour
         instance.sfxSource.Stop();
     }
 
+    //! TEMPORARY ! ! ! method for the main menu
+    public void QuitGame()
+    {
+        GameManager.instance.QuitApplication();
+    }
 
 }
