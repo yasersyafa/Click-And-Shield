@@ -5,7 +5,7 @@ using UnityEngine;
 public class Notification : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+
     void Start()
     {
         CheckNotification();
@@ -17,6 +17,7 @@ public class Notification : MonoBehaviour
     }
 
     public void OnButtonClick() {
+        gameObject.SetActive(false);
         GameManager.instance.hasNewItem = false;
     }
 }
