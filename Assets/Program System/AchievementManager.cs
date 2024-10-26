@@ -20,6 +20,7 @@ public class AchievementManager : MonoBehaviour
     private void UnlockAchievement(Achievement badge) {
         AddRewardToQueue(badge);
         unlockedAchievements.Add(badge.title);
+        GameManager.instance.hasNewItem = true;
     }
 
     public bool IsAchievementUnlocked(string title) {

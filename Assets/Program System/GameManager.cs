@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     private AchievementManager achievementManager;
     private Queue<string> scenes = new();
     public bool isWin;
+    public bool hasNewItem = false;
     public int playerScore = 0;
     private int highScore = 0;
     public bool isGamePaused = false;
