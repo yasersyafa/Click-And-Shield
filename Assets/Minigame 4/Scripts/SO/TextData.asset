@@ -19,9 +19,11 @@ MonoBehaviour:
     objectType: 0
   - text: Personal Phone Number
     objectType: 0
-  - text: ID/Passport Number
+  - text: ID Passport
     objectType: 0
   - text: "Personal\_Email\_Address"
+    objectType: 0
+  - text: Bank Number
     objectType: 0
   - text: Nickname
     objectType: 1
@@ -32,4 +34,6 @@ MonoBehaviour:
   - text: Gender
     objectType: 1
   - text: School
+    objectType: 1
+  - text: Job Title
     objectType: 1

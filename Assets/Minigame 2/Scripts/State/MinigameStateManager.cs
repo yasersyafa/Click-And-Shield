@@ -24,7 +24,7 @@ namespace typeProtect {
         // Start is called before the first frame update
         void Start()
         {
-            tutorialText.DOAnchorPos(new Vector2(tutorialText.anchoredPosition.x, 10f), 0.1f);
+            tutorialText.DOAnchorPos(new Vector2(tutorialText.anchoredPosition.x, 10f), 0.3f);
             manager = GameManager.instance;
             SetState(new typeProtect.PlayState(this));
         }

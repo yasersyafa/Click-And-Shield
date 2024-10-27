@@ -20,7 +20,22 @@ public class WordBank : MonoBehaviour
         "sniffing",
         "skimming",
         "xss",
-        "mitm"
+        "mitm",
+        "keylogger",
+        "rootkit",
+        "formjacking",
+        "cryptojacking",
+        "ddos",
+        "socialengineering",
+        "virus",
+        "malvertising",
+        "clickjacking",
+        "sqlinjection",
+        "dos",
+        "bruteforce",
+        "pharming",
+        "wateringhole",
+        "whaling"
     };
     
     
