@@ -68,7 +68,7 @@ namespace backupData
         public void PressedLoadingBackup()
         { 
             audioManager.SetSFX(sfx);
-            loadingBackupBar.fillAmount += 0.17f;
+            loadingBackupBar.fillAmount += 0.11f;
         }
 
         public void DecreaseLoadingBackup()

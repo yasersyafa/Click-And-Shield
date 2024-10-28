@@ -34,7 +34,7 @@ namespace backupData
             }
 
             // Play State
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.C))
             {
                 minigameManager.PressedLoadingBackup();
             }
