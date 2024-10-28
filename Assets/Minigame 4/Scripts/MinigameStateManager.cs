@@ -13,7 +13,7 @@ namespace dataRush {
         public VideoPlayer cutscenePlayer;
         public VideoClip winClip, loseClip;
         public GameObject cutsceneCanvas;
-        [HideInInspector] public DraggableObject draggableObject;
+        public DraggableObject draggableObject;
         public bool isGamePaused = false;
         // Start is called before the first frame update
         void Start()

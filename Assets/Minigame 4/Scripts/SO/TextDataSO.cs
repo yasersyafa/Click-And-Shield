@@ -6,12 +6,6 @@ using UnityEngine;
 
 public class TextDataSO : ScriptableObject
 {
-    [System.Serializable]
-    public class TextData
-    {
-        public string text;
-        public DraggableObject.ObjectType objectType;
-    }
-
-    public List<TextData> TextDataList;
+    public Sprite cardSprite;
+    public DataTypes dataType;
 }

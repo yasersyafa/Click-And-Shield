@@ -7,7 +7,7 @@ using dataRush;
 
 public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public DraggableObject.ObjectType acceptedType;
+    public DataTypes acceptedType;
     private MinigameStateManager stateManager;
 
     private Vector3 originalScale; 
@@ -24,7 +24,7 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 
         if (draggableObject != null)
         {
-            if (draggableObject.objectType == acceptedType)
+            if (draggableObject.dataType == acceptedType)
             {
                 Debug.Log("Benar");
                 Destroy(draggableObject.gameObject);

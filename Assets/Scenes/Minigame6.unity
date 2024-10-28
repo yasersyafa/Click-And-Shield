@@ -179,7 +179,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: until your backup data is complete
+  m_text: 'rapidly to complete the backup process
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b19c8ca6a78314e8a839e8aea96a9820, type: 2}
   m_sharedMaterial: {fileID: -421686805889537028, guid: b19c8ca6a78314e8a839e8aea96a9820, type: 2}
