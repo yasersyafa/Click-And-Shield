@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954a81cb1c6794086832ebca11b53915, type: 3}
+  m_Name: Spoof Slayer
+  m_EditorClassIdentifier: 
+  card: {fileID: 21300000, guid: deee891c70e0d4eb3978fc2f2c217057, type: 3}
+  title: Spoof Slayer
+  description: Spoofing is an attempt to impersonate a legitimate entity, such as
+    an email address, website, or phone number, to deceive users. The goal is to
+    obtain sensitive information or gain unauthorized access. This type of attack
+    can be highly convincing and difficult to detect.
+  scoreRequired: 100
+  isUnlocked: 0

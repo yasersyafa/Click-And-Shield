@@ -1,25 +1,77 @@
-# 📦 Lorem Ipsum Game Studio - Project Click & Shield
+# 📦 Lorem Ipsum Game Studio - Dev Branch
 
-Welcome to the **Lorem Ipsum Game Studio** game project repository! Before getting started, please read the following instructions carefully to ensure smooth collaboration and minimize conflicts during development.
+Welcome to the **dev branch** of the **Lorem Ipsum Game Studio** project. This branch is dedicated to ongoing development, and we follow strict naming conventions and programming principles to maintain code quality and consistency. Please adhere to the following guidelines when working on this branch.
 
-## 🛠️ How to Clone the Repository
+## 📝 File Naming Conventions
 
-```bash
-git clone https://github.com/loremipsum/project-repo.git
-cd project-repo
+To ensure clarity and consistency across the project, follow these rules for naming scripts:
+
+1. **Object Script**: Name the script after the object it is associated with.
+   ```
+   {Object}.cs
+   ```
+   Example: `Player.cs`, `Enemy.cs`
+
+2. **Multiple Words Object Script**: If the object name contains multiple words, use PascalCase for each word.
+   ```
+   {ObjectApa}.cs
+   ```
+   Example: `PlayerController.cs`, `EnemySpawner.cs`
+
+3. **Animation Script**: If the script is specifically for animation purposes, append `Anim` to the object name.
+   ```
+   {ObjectAnim}.cs
+   ```
+   Example: `PlayerAnim.cs`, `EnemyAnim.cs`
+
+4. **Handling Multiple Objects**: If the script manages multiple objects or processes, use `{HandlingName}{Manager}.cs` format.
+   ```
+   {HandlingName}{Manager}.cs
+   ```
+   Example: `GameManager.cs`, `AudioManager.cs`
+
+## 🗂️ Folder Structure & Commit Guidelines
+
+You are allowed to create new folders in the project to better organize your scripts and assets. However, **make sure to add a description when committing and pushing changes to this branch**. This description should clearly explain the purpose of the new folder.
+
+### Example:
+```
+git add .
+git commit -m "Added new folder 'Audio' for sound management scripts"
+git push origin dev
 ```
 
-## 🔀 Branching Workflow
+## 📜 Commit Message Guidelines
 
-To work on new features or minigames, always create a new branch from `dev` using the following format:
+To keep commit history clean and understandable, always start your commit messages with either:
+- `create feature:`
+- `update feature:`
 
+Followed by a concise description of the changes.
+
+### Example:
 ```
-scene/minigame-name
-
+create feature: added player movement controller
+update feature: fixing enemy bug
 ```
 
+## ⚙️ Programming Principles
+
+When writing code, always remember to:
+
+- Apply **Object-Oriented Programming (OOP)** principles to keep your code modular, reusable, and maintainable.
+- Follow the **Single Responsibility Principle (SRP)** — each class should have only one responsibility or functionality.
+
+## ⏳ Coroutine Naming Convention
+
+When writing `IEnumerator` functions for coroutines, name them using the following format:
+```
+{FunctionName}{Coroutine}()
+```
 Example:
-
+```csharp
+IEnumerator FadeOutCoroutine() { ... }
+IEnumerator MovePlayerCoroutine() { ... }
 ```
 scene/racing-game
 scene/platformer
@@ -69,6 +121,8 @@ Ensure this library is installed and used for any UI animations you create.
 
 ---
 
-If you have any further questions, feel free to discuss in GitHub Issues or contact the lead programmer.
+By adhering to these rules, we can maintain a clean, efficient codebase and ensure smooth collaboration across the team. 
+
+If you have any questions or need clarifications, please reach out via the appropriate communication channels.
 
 Happy coding! 🎮👾

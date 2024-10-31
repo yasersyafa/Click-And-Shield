@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Click _ Shield.sln"
+    "dotnet.defaultSolution": "Click _ Shield.sln",
+    "dotnet.preferCSharpExtension": true
 }
