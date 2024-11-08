@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 /* 
@@ -22,6 +23,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
+    public UnityAction onSevenHundred;
     private AchievementManager achievementManager;
     private Queue<string> scenes = new();
     public bool isWin;
@@ -103,6 +105,11 @@ public class GameManager : MonoBehaviour {
         else {
             minigameTimer = 10f;
         }
+
+        if(playerScore >= 700) {
+            onSevenHundred?.Invoke();
+            playerScore += ScoreBonus();
+        }
     }
 
     public void LoseMinigame() {
@@ -152,4 +159,10 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         objectToClose.transform.parent.gameObject.SetActive(false);
     }
+
+
+    // function buat nambahin bonus skor
+    public int ScoreBonus() => UnityEngine.Random.Range(50, 100);
+        
+        
 }

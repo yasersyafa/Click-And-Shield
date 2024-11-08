@@ -42,7 +42,7 @@ namespace typeProtect {
 
         private void PlayerController() {
             if(Input.anyKeyDown) {
-                string inputChar = Input.inputString;
+                string inputChar = Input.inputString.ToLower();
                 if(!string.IsNullOrEmpty(inputChar)) {
                     CheckInput(inputChar);
                 }
