@@ -27,7 +27,7 @@ public class ScoreCounter : MonoBehaviour
         achievementManager = FindObjectOfType<AchievementManager>();
         // Mulai coroutine untuk menambah 1 skor
         scoreText.text = currentScore.ToString();
-        Debug.Log($"your score: {currentScore}");
+        
         StartCoroutine(CountUpScore());
     }
 
@@ -67,7 +67,7 @@ public class ScoreCounter : MonoBehaviour
             
             scoreText.text = targetScore.ToString();
             currentScore = targetScore;
-            Debug.Log($"[CountUpScore] Updated currentScore: {currentScore}");
+            
 
             yield return new WaitForSeconds(0.25f);
             GameManager.instance.GetMinigames();

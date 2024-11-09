@@ -32,7 +32,7 @@ namespace backupData
         private void EndLoseCutscene(VideoPlayer vp)
         {
             minigameManager.cutscenePlayer.loopPointReached -= EndLoseCutscene;
-            Debug.Log("You lose!");
+            
             GameManager.instance.LoseMinigame();
             GameManager.instance.GoToRewardScene();
         }

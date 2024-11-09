@@ -32,7 +32,7 @@ public static class SaveManager
             stream.Close();
             return data;
         } else {
-            Debug.LogWarning("player data not found");
+            
             return null;
         }
         

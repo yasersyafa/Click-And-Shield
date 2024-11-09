@@ -15,7 +15,7 @@ namespace backupData
 
         public void EnterState()
         {
-            Debug.Log(minigameManager.isGamePaused);
+            
         }
 
         public void UpdateState()

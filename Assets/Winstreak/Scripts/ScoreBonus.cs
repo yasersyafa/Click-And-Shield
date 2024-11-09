@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class ScoreBonus : MonoBehaviour
 {
-    private GameObject _bonusScoreObject;
-    void OnEnable() => GameManager.instance.onSevenHundred += ActivateGameObject;
+    public GameObject bonusScoreObject;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        ActivateGameObject();
     }
+
+    
+    void OnDisable() { GameManager.instance.onSevenHundred -= ActivateGameObject; }
+    
 
     // Update is called once per frame
     void Update()
@@ -19,11 +23,9 @@ public class ScoreBonus : MonoBehaviour
         
     }
 
-    void OnDisable() => GameManager.instance.onSevenHundred -= ActivateGameObject;
 
     private void ActivateGameObject() {
-        _bonusScoreObject = gameObject.transform.GetChild(0).gameObject;
-
-        _bonusScoreObject.SetActive(true);
+        if(GameManager.instance.isWin && GameManager.instance.playerScore >= 700) { bonusScoreObject.SetActive(true); }
+        else bonusScoreObject.SetActive(false);
     }
 }

@@ -23,7 +23,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
-    public UnityAction onSevenHundred;
+    public event Action onSevenHundred;
     private AchievementManager achievementManager;
     private Queue<string> scenes = new();
     public bool isWin;
@@ -107,7 +107,6 @@ public class GameManager : MonoBehaviour {
         }
 
         if(playerScore >= 700) {
-            onSevenHundred?.Invoke();
             playerScore += ScoreBonus();
         }
     }
