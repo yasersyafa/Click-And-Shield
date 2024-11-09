@@ -23,7 +23,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
-    public event Action onSevenHundred;
+    public int bonusScore;
     private AchievementManager achievementManager;
     private Queue<string> scenes = new();
     public bool isWin;
@@ -95,12 +95,9 @@ public class GameManager : MonoBehaviour {
             minigameTimer = 5f;
             
         }
-        else if(playerScore >= 1000 && playerScore < 1200) {
+        else if(playerScore >= 1000) {
             minigameTimer = 3f;
             
-        }
-        else if(playerScore >= 1200 ) {
-            minigameTimer = 2.5f;
         }
         else {
             minigameTimer = 10f;
@@ -161,7 +158,10 @@ public class GameManager : MonoBehaviour {
 
 
     // function buat nambahin bonus skor
-    public int ScoreBonus() => UnityEngine.Random.Range(50, 100);
+    public int ScoreBonus() {
+        bonusScore = UnityEngine.Random.Range(50, 100);
+        return bonusScore;
+    } 
         
         
 }
