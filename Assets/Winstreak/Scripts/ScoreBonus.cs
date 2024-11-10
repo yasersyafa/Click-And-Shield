@@ -41,13 +41,13 @@ public class ScoreBonus : MonoBehaviour
         while(elapsedTime < 1f) {
             elapsedTime += Time.deltaTime;
 
-            int newScore = Mathf.FloorToInt(Mathf.Lerp(bonusPoint, 0, elapsedTime / 1f));
+            int newScore = Mathf.FloorToInt(Mathf.Lerp(0, bonusPoint, elapsedTime / 1f));
 
             bonusText.text = $"+{newScore}";
 
             yield return null;
         }
 
-        bonusText.text = "+0";
+        bonusText.text = $"+{bonusPoint}";
     }
 }
