@@ -39,7 +39,7 @@ namespace tangkapPhiser
         private void EndWinCutscene(VideoPlayer vp)
         {
             minigameManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
-            
+            minigameManager.cutscenePlayer.Stop();
             GameManager.instance.WinMinigame();
             GameManager.instance.GoToRewardScene();
         }

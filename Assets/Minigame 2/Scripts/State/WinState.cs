@@ -35,7 +35,7 @@ namespace typeProtect {
         private void EndWinCutscene(VideoPlayer vp)
         {
             stateManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
-            
+            stateManager.cutscenePlayer.Stop();
             GameManager.instance.WinMinigame();
             GameManager.instance.GoToRewardScene();
         }
