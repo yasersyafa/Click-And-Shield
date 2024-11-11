@@ -12,8 +12,8 @@ namespace undanganApk
         public bool isGamePaused = false;
         public RectTransform[] tutorialText;
 
-        public GameObject effect1;
-        public GameObject effect2;
+        // public GameObject effect1;
+        // public GameObject effect2;
 
         private GameManager gameManager;
         // public AnimationClip winClip;

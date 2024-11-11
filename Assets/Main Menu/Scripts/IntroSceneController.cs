@@ -51,6 +51,7 @@ public class IntroSceneController : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
+        videoPlayer.loopPointReached -= OnVideoEnd;
         // Load the desired scene once the video finishes
         SceneManager.LoadScene("MainMenu"); // Replace with your scene's name
     }
