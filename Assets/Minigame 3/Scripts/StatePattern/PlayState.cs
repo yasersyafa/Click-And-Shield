@@ -13,6 +13,7 @@ public class PlayState : IMinigameState
 
     public void EnterState()
     {
+        PlayVibrateEffect();
         
     }
 
@@ -36,4 +37,10 @@ public class PlayState : IMinigameState
     }
 
     public void ExitState() { }
+
+    void PlayVibrateEffect()
+    {
+        minigameManager.effect1.SetActive(true);
+        minigameManager.effect2.SetActive(true);
+    }
 }

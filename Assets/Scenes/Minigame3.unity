@@ -1347,6 +1347,8 @@ MonoBehaviour:
   tutorialText:
   - {fileID: 378359674}
   - {fileID: 1526323912}
+  effect1: {fileID: 0}
+  effect2: {fileID: 0}
 --- !u!114 &1421807563 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 358748862492601437, guid: 313d6bbe1c5f5a54eabedcf51a07c03d, type: 3}
@@ -1534,7 +1536,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 416}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
