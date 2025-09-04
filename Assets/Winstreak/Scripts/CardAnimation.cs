@@ -128,7 +128,7 @@ public class CardAnimation : MonoBehaviour
     {
         float rotationSpeed = 90f; // Kecepatan rotasi konstan
         float scaleSpeed = 0.7f;   // Kecepatan scaling konstan
-        float scaleAmount = 0.3f;  // Jumlah scaling
+        // float scaleAmount = 0.3f;  // Jumlah scaling
 
         float t = 0f;  // Ini akan melacak waktu untuk keperluan scaling
 

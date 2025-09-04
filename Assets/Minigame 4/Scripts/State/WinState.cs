@@ -33,7 +33,7 @@ namespace dataRush {
 
         private void EndWinCutscene(VideoPlayer vp) {
             stateManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
-            Debug.Log("Win cutscene ended.");
+            stateManager.cutscenePlayer.Stop();
             GameManager.instance.WinMinigame();
             GameManager.instance.GoToRewardScene();
         }

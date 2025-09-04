@@ -30,7 +30,7 @@ public class AchievementManager : MonoBehaviour
     public void AddRewardToQueue(Achievement badge) {
         if(!IsAchievementUnlocked(badge.title)) {
             rewardQueue.Enqueue(badge);
-            Debug.Log($"Kamu mendapatkan: {badge.title}");
+            
         }
     }
 

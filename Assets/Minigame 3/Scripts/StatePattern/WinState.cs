@@ -32,7 +32,7 @@ public class WinState : IMinigameState
     private void EndWinCutscene(VideoPlayer vp)
     {
         minigameManager.cutscenePlayer.loopPointReached -= EndWinCutscene;
-        Debug.Log("Win cutscene ended.");
+        minigameManager.cutscenePlayer.Stop();
         GameManager.instance.WinMinigame();
         GameManager.instance.GoToRewardScene();
     }

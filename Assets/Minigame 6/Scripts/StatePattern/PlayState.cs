@@ -15,14 +15,14 @@ namespace backupData
 
         public void EnterState()
         {
-            Debug.Log(minigameManager.isGamePaused);
+            
         }
 
         public void UpdateState()
         {
             minigameManager.DecreaseLoadingBackup();
             // check win condition
-            if (minigameManager.loadingBackupBar.fillAmount >= 0.98)
+            if (minigameManager.loadingBackupBar.fillAmount >= 0.96f)
             {
                 minigameManager.SetState(new WinState(minigameManager));
             }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 /* 
@@ -22,6 +23,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
+    public int bonusScore;
     private AchievementManager achievementManager;
     private Queue<string> scenes = new();
     public bool isWin;
@@ -32,8 +34,8 @@ public class GameManager : MonoBehaviour {
     private float minigameTimer = 10f;
     public GameObject popUpModal;
 
-    private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame5", "Minigame4"};
-
+    [SerializeField] private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame5", "Minigame4"};
+    [SerializeField] private bool isMobile = false;
     void Awake() {
         if(instance == null) {
             instance = this;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        Application.targetFrameRate = 60;
         achievementManager = GetComponentInChildren<AchievementManager>();
         PopUp(popUpModal);
         LoadGame();
@@ -73,7 +76,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1f;
         playerScore = 0;
         minigameTimer = 10f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(isMobile ? "MainMenu - Mobile" : "MainMenu");
         
     }
 
@@ -93,15 +96,16 @@ public class GameManager : MonoBehaviour {
             minigameTimer = 5f;
             
         }
-        else if(playerScore >= 1000 && playerScore < 1200) {
+        else if(playerScore >= 1000) {
             minigameTimer = 3f;
             
         }
-        else if(playerScore >= 1200 ) {
-            minigameTimer = 2.5f;
-        }
         else {
             minigameTimer = 10f;
+        }
+
+        if(playerScore >= 700) {
+            playerScore += ScoreBonus();
         }
     }
 
@@ -113,7 +117,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GoToRewardScene() {
-        SceneManager.LoadScene("Winstreak");
+        if (!isMobile) {
+            SceneManager.LoadScene("Winstreak");
+        } else {
+            SceneManager.LoadScene("Winstreak - Mobile");
+        }
     }
 
     public void LoadGame() {
@@ -152,4 +160,13 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         objectToClose.transform.parent.gameObject.SetActive(false);
     }
+
+
+    // function buat nambahin bonus skor
+    public int ScoreBonus() {
+        bonusScore = UnityEngine.Random.Range(50, 100);
+        return bonusScore;
+    } 
+        
+        
 }
