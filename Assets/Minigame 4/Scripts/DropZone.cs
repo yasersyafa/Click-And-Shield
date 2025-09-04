@@ -26,14 +26,14 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
         {
             if (draggableObject.dataType == acceptedType)
             {
-                Debug.Log("Benar");
+                
                 Destroy(draggableObject.gameObject);
                 stateManager.SetState(new dataRush.WinState(stateManager));
             }
             else
             {
                 // Untuk objek yang salah
-                Debug.Log("Salah");
+                
                 Destroy(draggableObject.gameObject);
                 stateManager.SetState(new dataRush.LoseState(stateManager));
                 

@@ -16,7 +16,7 @@ namespace lindungiDataPribadi
 
         public void EnterState()
         {
-            Debug.Log(minigameManager.isGamePaused);
+            
             SpawnTrojan();
             
         }

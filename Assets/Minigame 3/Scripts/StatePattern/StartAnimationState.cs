@@ -13,7 +13,7 @@ namespace undanganApk
 
         public void EnterState()
         {
-            Debug.Log("Start animation playing...");
+            
 
             // Start your animation (this could be with Animator, or via an event/coroutine)
             // Example: minigameManager.gameManager.animator.Play("StartAnimation");

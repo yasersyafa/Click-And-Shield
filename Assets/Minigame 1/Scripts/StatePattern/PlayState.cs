@@ -14,7 +14,7 @@ namespace tangkapPhiser
 
         public void EnterState()
         {
-            Debug.Log(minigameManager.isGamePaused);
+            
             Shuffle();
         }
 
