@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour {
     private float minigameTimer = 10f;
     public GameObject popUpModal;
 
-    private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame5", "Minigame4"};
-
+    [SerializeField] private string[] minigames = {"Minigame3", "Minigame2", "Minigame6", "Minigame1", "Minigame5", "Minigame4"};
+    [SerializeField] private bool isMobile = false;
     void Awake() {
         if(instance == null) {
             instance = this;
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        Application.targetFrameRate = 60;
         achievementManager = GetComponentInChildren<AchievementManager>();
         PopUp(popUpModal);
         LoadGame();
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1f;
         playerScore = 0;
         minigameTimer = 10f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(isMobile ? "MainMenu - Mobile" : "MainMenu");
         
     }
 
@@ -116,7 +117,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GoToRewardScene() {
-        SceneManager.LoadScene("Winstreak");
+        if (!isMobile) {
+            SceneManager.LoadScene("Winstreak");
+        } else {
+            SceneManager.LoadScene("Winstreak - Mobile");
+        }
     }
 
     public void LoadGame() {
